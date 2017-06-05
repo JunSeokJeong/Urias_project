@@ -1,0 +1,123 @@
+//오역수정 봉사 테이블
+
+//봉사목록게시판 테이블 
+CREATE table volunteer_lists (
+	v_num INT AUTO_INCREMENT PRIMARY KEY,
+	book_name VARCHAR(50) NOT NULL,
+	writer VARCHAR(50) NOT NULL,
+	v_content TEXT,
+	write_date VARCHAR(30) NOT NULL,
+	book_page INT NOT NULL,
+	v_progress_page INT NOT NULL
+);
+
+//오역수정 텍스트 제출 테이블
+CREATE table submit_texts (
+	t_num INT AUTO_INCREMENT PRIMARY KEY,
+	v_num INT NOT NULL,
+	submit_user VARCHAR(50) NOT NULL,
+	submit_page INT NOT NULL,
+	submit_date VARCHAR(30) NOT NULL
+);
+
+//현재 오역수정봉사정보
+CREATE table now_text_inputs (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	v_num INT NOT NULL,
+	text_input_user VARCHAR(50) NOT NULL,
+	text_input_page INT NOT NULL
+);
+
+값 입력
+INSERT INTO volunteerlists 
+(book_name, writer, v_content, write_date, book_page, v_progress_page) 
+VALUE 
+('testbook', '강행진', 'testbook입니다.', '2017-05-17 (17:29:07)', 3, 0);
+
+책이름으로 찾기
+SELECT * 
+FROM volunteerlists 
+WHERE book_name = 'book_name';
+
+//게시글 번호로 찾기
+SELECT * 
+FROM volunteerlists 
+WHERE v_num = 'v_num';
+
+//진행률 올리기
+UPDATE volunteerlists 
+SET v_progress_page = v_progress_page + 1
+WHERE v_num = 'v_num';
+
+================================================================
+5/18
+
+//테이블 구조
+//봉사목록게시판 테이블 
+CREATE table volunteer_lists (
+	v_num INT AUTO_INCREMENT PRIMARY KEY,
+	book_name VARCHAR(50) NOT NULL,
+	writer VARCHAR(50) NOT NULL,
+	v_content TEXT,
+	write_date VARCHAR(30) NOT NULL,
+	page INT NOT NULL,
+	main_img_dir VARCHAR(50)
+);
+
+//책 페이지 테이블
+CREATE table testbook_pages (
+	p_num INT AUTO_INCREMENT PRIMARY KEY,
+	p_img_dir VARCHAR(50) NOT NULL,
+	p_pri_text TEXT,
+	page_num INT NOT NULL
+);
+
+//1차 제출 테이블
+CREATE table testbook_submit (
+	s_num INT AUTO_INCREMENT PRIMARY KEY,
+	s_txt_dir VARCHAR(50) NOT NULL,
+	page_num INT NOT NULL,
+	submit_user VARCHAR(50) NOT NULL
+);
+
+//검수 테이블
+CREATE table testbook_check (
+	c_num INT AUTO_INCREMENT PRIMARY KEY,
+	c_txt_dir VARCHAR(50) NOT NULL,
+	page_num INT NOT NULL
+);
+
+//SELECT
+SELECT * 
+FROM volunteer_lists 
+WHERE v_num = 'v_num';
+
+
+
+//INSERT
+//게시글 등록
+INSERT INTO volunteer_lists 
+(book_name, writer, v_content, write_date, page) 
+VALUE 
+('testbook', '강행진', 'testbook입니다.', '2017-05-17 (17:29:07)', 3);
+
+//페이지 등록
+INSERT INTO testbook_pages 
+(p_img_dir, p_pri_text, page_num) 
+VALUE 
+('/testbook/testbook_pri_img/testbook_pri_1page.JPG', '1', 1);
+
+//제출페이지
+INSERT INTO testbook_pages 
+(s_txt_dir, page_num, submit_user) 
+VALUE 
+('/testbook/gdfg', 1, 'UserID');
+
+//검수 테이블
+INSERT INTO testbook_pages 
+(c_txt_dir, page_num) 
+VALUE 
+('/testbook/gdfg', 1);
+
+
+//UPDATE

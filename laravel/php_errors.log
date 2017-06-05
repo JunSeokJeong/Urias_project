@@ -1,0 +1,126 @@
+[09-May-2017 21:46:13 UTC] PHP Fatal error:  Class 'HTML' not found in /home/ubuntu/workspace/laravel/storage/framework/views/da72ed7b5cd037289674bccb901c5f76c3a2fae2.php on line 8
+[09-May-2017 22:01:09 UTC] PHP Fatal error:  Class 'HTML' not found in /home/ubuntu/workspace/laravel/storage/framework/views/da72ed7b5cd037289674bccb901c5f76c3a2fae2.php on line 9
+[09-May-2017 22:01:24 UTC] PHP Fatal error:  Class 'Html' not found in /home/ubuntu/workspace/laravel/storage/framework/views/da72ed7b5cd037289674bccb901c5f76c3a2fae2.php on line 9
+[11-May-2017 04:54:40 UTC] PHP Parse error:  syntax error, unexpected '__data' (T_STRING) in /home/ubuntu/workspace/laravel/storage/framework/views/39cc40029a498ae4bb265f771474a66e20492dcd.php on line 9
+[11-May-2017 10:50:18 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/laravel/storage/framework/views/f373a9e95777d462aa19058f5c06d6fe8d2bef1d.php on line 26
+[11-May-2017 10:50:38 UTC] PHP Fatal error:  Call to undefined function routes() in /home/ubuntu/workspace/laravel/storage/framework/views/f373a9e95777d462aa19058f5c06d6fe8d2bef1d.php on line 26
+[11-May-2017 10:53:59 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ';' or '{' in /home/ubuntu/workspace/laravel/app/Http/Controllers/HomeController.php on line 29
+[12-May-2017 12:16:35 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/laravel/storage/framework/views/b80fc321b5a65bebda0c8a0462d44f5cf99992d6.php on line 51
+[12-May-2017 12:16:41 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/laravel/storage/framework/views/b80fc321b5a65bebda0c8a0462d44f5cf99992d6.php on line 51
+[12-May-2017 12:16:54 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/laravel/storage/framework/views/b80fc321b5a65bebda0c8a0462d44f5cf99992d6.php on line 51
+[12-May-2017 12:20:57 UTC] PHP Parse error:  syntax error, unexpected 'var' (T_VAR) in /home/ubuntu/workspace/laravel/app/Http/Controllers/StudyController.php on line 48
+[12-May-2017 12:25:58 UTC] PHP Parse error:  syntax error, unexpected ']' in /home/ubuntu/workspace/laravel/app/Http/Controllers/StudyController.php on line 58
+[12-May-2017 12:37:06 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/laravel/storage/framework/views/b80fc321b5a65bebda0c8a0462d44f5cf99992d6.php on line 81
+[12-May-2017 12:38:07 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/laravel/storage/framework/views/b80fc321b5a65bebda0c8a0462d44f5cf99992d6.php on line 81
+[12-May-2017 12:38:09 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/laravel/storage/framework/views/b80fc321b5a65bebda0c8a0462d44f5cf99992d6.php on line 81
+[12-May-2017 12:38:20 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/laravel/storage/framework/views/b80fc321b5a65bebda0c8a0462d44f5cf99992d6.php on line 81
+[12-May-2017 12:38:21 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/laravel/storage/framework/views/b80fc321b5a65bebda0c8a0462d44f5cf99992d6.php on line 81
+[15-May-2017 05:03:58 UTC] PHP Fatal error:  Class 'app\Project' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/StudyController.php on line 17
+[15-May-2017 05:04:15 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Projects' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/StudyController.php on line 17
+[15-May-2017 05:04:27 UTC] PHP Fatal error:  Class 'app\Project' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/StudyController.php on line 17
+[15-May-2017 05:06:18 UTC] PHP Fatal error:  Class 'app\Project' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/StudyController.php on line 17
+[15-May-2017 05:06:22 UTC] PHP Fatal error:  Class 'app\Project' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/StudyController.php on line 17
+[15-May-2017 05:06:27 UTC] PHP Fatal error:  Class 'app\Project' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/StudyController.php on line 17
+[15-May-2017 05:06:51 UTC] PHP Fatal error:  Class 'app\Project' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/StudyController.php on line 17
+[15-May-2017 05:21:41 UTC] PHP Fatal error:  Class 'app\Project' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/StudyController.php on line 39
+[15-May-2017 05:24:43 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\save() in /home/ubuntu/workspace/laravel/app/Http/Controllers/StudyController.php on line 41
+[15-May-2017 05:38:04 UTC] PHP Fatal error:  Class 'App\Providers\Schema' not found in /home/ubuntu/workspace/laravel/app/Providers/AppServiceProvider.php on line 16
+[15-May-2017 05:38:16 UTC] PHP Fatal error:  Class 'App\Providers\Schema' not found in /home/ubuntu/workspace/laravel/app/Providers/AppServiceProvider.php on line 16
+[15-May-2017 05:39:23 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\redircet() in /home/ubuntu/workspace/laravel/app/Http/Controllers/StudyController.php on line 43
+[16-May-2017 00:52:48 UTC] PHP Fatal error:  Call to undefined method Illuminate\Routing\Route::view() in /home/ubuntu/workspace/laravel/routes/web.php on line 39
+[16-May-2017 00:54:12 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/laravel/routes/web.php on line 41
+[16-May-2017 00:54:43 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/laravel/routes/web.php on line 41
+[17-May-2017 02:52:42 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DB' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 20
+[17-May-2017 02:55:57 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DB' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 21
+[17-May-2017 02:56:13 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DB' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 21
+[17-May-2017 02:56:20 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DB' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 21
+[17-May-2017 02:56:40 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DB' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 21
+[17-May-2017 02:59:42 UTC] PHP Fatal error:  Class 'Illuminate\Suppor\Facades\DB' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 21
+[17-May-2017 12:03:59 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 24
+[17-May-2017 12:03:59 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 24
+[17-May-2017 12:04:07 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 24
+[17-May-2017 12:04:17 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 24
+[17-May-2017 12:04:28 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 24
+[17-May-2017 12:05:59 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/storage/framework/views/e46d02205b2b90a1ed7988fada88a8432e0e21f1.php on line 21
+[17-May-2017 12:05:59 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/storage/framework/views/e46d02205b2b90a1ed7988fada88a8432e0e21f1.php on line 21
+[17-May-2017 12:07:00 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 25
+[17-May-2017 12:07:03 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 25
+[17-May-2017 12:08:16 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\toArray() in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 24
+[17-May-2017 12:08:19 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\toArray() in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 24
+[17-May-2017 12:08:22 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\toArray() in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 24
+[17-May-2017 12:15:02 UTC] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 27
+[17-May-2017 12:15:54 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 26
+[17-May-2017 12:16:26 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 26
+[17-May-2017 12:16:32 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 26
+[17-May-2017 12:17:56 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 25
+[17-May-2017 12:18:13 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 25
+[17-May-2017 12:26:31 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 25
+[17-May-2017 12:28:23 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 25
+[17-May-2017 12:28:32 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 25
+[17-May-2017 12:30:27 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 25
+[17-May-2017 12:30:39 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/libraryController.php on line 25
+[17-May-2017 12:57:29 UTC] PHP Parse error:  syntax error, unexpected '$book' (T_VARIABLE) in /home/ubuntu/workspace/laravel/storage/framework/views/e46d02205b2b90a1ed7988fada88a8432e0e21f1.php on line 21
+[18-May-2017 02:30:58 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/ubuntu/workspace/laravel/app/Http/Controllers/StudyController.php on line 39
+[19-May-2017 12:58:17 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Input' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 40
+[22-May-2017 07:11:42 UTC] PHP Fatal error:  Cannot use Illuminate\Http\Request as Request because the name is already in use in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 8
+[22-May-2017 07:12:19 UTC] PHP Fatal error:  Cannot use Illuminate\Http\Request as Request because the name is already in use in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 8
+[22-May-2017 07:13:53 UTC] PHP Fatal error:  Cannot use Illuminate\Http\Request as Request because the name is already in use in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 8
+[22-May-2017 08:13:01 UTC] PHP Fatal error:  Call to a member function store() on array in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 147
+[22-May-2017 08:13:17 UTC] PHP Fatal error:  Call to a member function store() on null in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 147
+[22-May-2017 08:13:34 UTC] PHP Fatal error:  Call to a member function store() on null in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 147
+[22-May-2017 08:13:41 UTC] PHP Fatal error:  Call to a member function store() on array in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 147
+[24-May-2017 02:07:45 UTC] PHP Parse error:  syntax error, unexpected 'var' (T_VAR), expecting ';' in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 194
+[24-May-2017 02:08:15 UTC] PHP Parse error:  syntax error, unexpected 'var' (T_VAR), expecting ';' in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 194
+[24-May-2017 02:08:34 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 211
+[24-May-2017 02:09:13 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 211
+[24-May-2017 02:09:19 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 213
+[24-May-2017 02:09:51 UTC] PHP Fatal error:  Class 'Illuminate\Database\Schema' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 168
+[24-May-2017 04:59:50 UTC] PHP Fatal error:  Class 'Illuminate\Database\Schema' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 158
+[24-May-2017 05:01:31 UTC] PHP Fatal error:  Class 'Illuminate\Database\Schema' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 157
+[24-May-2017 13:34:52 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 206
+[30-May-2017 02:00:17 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 187
+[05-Jun-2017 00:05:05 UTC] PHP Parse error:  syntax error, unexpected 'view' (T_STRING) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 21
+[05-Jun-2017 00:05:19 UTC] PHP Parse error:  syntax error, unexpected 'view' (T_STRING) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 21
+[05-Jun-2017 00:05:27 UTC] PHP Parse error:  syntax error, unexpected 'view' (T_STRING) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 21
+[05-Jun-2017 00:05:55 UTC] PHP Parse error:  syntax error, unexpected 'view' (T_STRING) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 21
+[05-Jun-2017 00:05:57 UTC] PHP Parse error:  syntax error, unexpected 'view' (T_STRING) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 21
+[05-Jun-2017 00:06:14 UTC] PHP Parse error:  syntax error, unexpected 'view' (T_STRING) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 21
+[05-Jun-2017 00:06:42 UTC] PHP Parse error:  syntax error, unexpected 'view' (T_STRING) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 21
+[05-Jun-2017 00:07:06 UTC] PHP Parse error:  syntax error, unexpected 'view' (T_STRING) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 21
+[05-Jun-2017 00:08:27 UTC] PHP Parse error:  syntax error, unexpected 'view' (T_STRING) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 21
+[05-Jun-2017 00:18:29 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 187
+[05-Jun-2017 00:18:48 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 187
+[05-Jun-2017 00:20:01 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 184
+[05-Jun-2017 00:20:08 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 184
+[05-Jun-2017 00:20:39 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 184
+[05-Jun-2017 00:20:52 UTC] PHP Fatal error:  Call to a member function getClientOriginalExtension() on null in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 184
+[05-Jun-2017 00:43:53 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/laravel/storage/framework/views/f373a9e95777d462aa19058f5c06d6fe8d2bef1d.php on line 19
+[05-Jun-2017 00:43:54 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/laravel/storage/framework/views/f373a9e95777d462aa19058f5c06d6fe8d2bef1d.php on line 19
+[05-Jun-2017 00:44:08 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/laravel/storage/framework/views/f373a9e95777d462aa19058f5c06d6fe8d2bef1d.php on line 22
+[05-Jun-2017 00:44:11 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/laravel/storage/framework/views/f373a9e95777d462aa19058f5c06d6fe8d2bef1d.php on line 22
+[05-Jun-2017 00:44:12 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/laravel/storage/framework/views/f373a9e95777d462aa19058f5c06d6fe8d2bef1d.php on line 22
+[05-Jun-2017 00:44:15 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/laravel/storage/framework/views/f373a9e95777d462aa19058f5c06d6fe8d2bef1d.php on line 22
+[05-Jun-2017 02:04:01 UTC] PHP Fatal error:  Call to undefined method stdClass::put() in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 37
+[05-Jun-2017 02:04:33 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/ubuntu/workspace/laravel/storage/framework/views/2c75c68967df0c7dcc984e9960b7eaef1ed923cf.php on line 7
+[05-Jun-2017 02:04:45 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/ubuntu/workspace/laravel/storage/framework/views/2c75c68967df0c7dcc984e9960b7eaef1ed923cf.php on line 7
+[05-Jun-2017 02:05:13 UTC] PHP Fatal error:  Call to undefined method stdClass::push() in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 37
+[05-Jun-2017 02:13:41 UTC] PHP Fatal error:  Call to undefined method stdClass::put() in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 38
+[05-Jun-2017 02:16:00 UTC] PHP Fatal error:  Call to undefined method stdClass::all() in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 38
+[05-Jun-2017 02:16:09 UTC] PHP Fatal error:  Call to undefined method stdClass::all() in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 38
+[05-Jun-2017 02:16:25 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/ubuntu/workspace/laravel/storage/framework/views/2c75c68967df0c7dcc984e9960b7eaef1ed923cf.php on line 7
+[05-Jun-2017 02:16:39 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/ubuntu/workspace/laravel/storage/framework/views/2c75c68967df0c7dcc984e9960b7eaef1ed923cf.php on line 7
+[05-Jun-2017 02:17:43 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/ubuntu/workspace/laravel/storage/framework/views/2c75c68967df0c7dcc984e9960b7eaef1ed923cf.php on line 7
+[05-Jun-2017 02:17:44 UTC] PHP Fatal error:  Call to undefined method stdClass::all() in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 38
+[05-Jun-2017 02:18:17 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/ubuntu/workspace/laravel/storage/framework/views/2c75c68967df0c7dcc984e9960b7eaef1ed923cf.php on line 7
+[05-Jun-2017 02:18:22 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/ubuntu/workspace/laravel/storage/framework/views/2c75c68967df0c7dcc984e9960b7eaef1ed923cf.php on line 7
+[05-Jun-2017 02:18:27 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/ubuntu/workspace/laravel/storage/framework/views/2c75c68967df0c7dcc984e9960b7eaef1ed923cf.php on line 7
+[05-Jun-2017 02:19:07 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/ubuntu/workspace/laravel/storage/framework/views/2c75c68967df0c7dcc984e9960b7eaef1ed923cf.php on line 7
+[05-Jun-2017 02:19:10 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/ubuntu/workspace/laravel/storage/framework/views/2c75c68967df0c7dcc984e9960b7eaef1ed923cf.php on line 7
+[05-Jun-2017 02:19:52 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/ubuntu/workspace/laravel/storage/framework/views/2c75c68967df0c7dcc984e9960b7eaef1ed923cf.php on line 7
+[05-Jun-2017 02:20:21 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/ubuntu/workspace/laravel/storage/framework/views/2c75c68967df0c7dcc984e9960b7eaef1ed923cf.php on line 7
+[05-Jun-2017 02:20:36 UTC] PHP Parse error:  syntax error, unexpected '$book' (T_VARIABLE) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 38
+[05-Jun-2017 02:20:44 UTC] PHP Parse error:  syntax error, unexpected '$book' (T_VARIABLE) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 38
+[05-Jun-2017 02:21:04 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/ubuntu/workspace/laravel/storage/framework/views/2c75c68967df0c7dcc984e9960b7eaef1ed923cf.php on line 7
+[05-Jun-2017 02:25:36 UTC] PHP Parse error:  syntax error, unexpected '$book' (T_VARIABLE) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 38
+[05-Jun-2017 02:25:39 UTC] PHP Parse error:  syntax error, unexpected '$book' (T_VARIABLE) in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 38
+[05-Jun-2017 10:35:49 UTC] PHP Fatal error:  Class 'Illuminate\Auth' not found in /home/ubuntu/workspace/laravel/app/Http/Controllers/LibraryController.php on line 59
