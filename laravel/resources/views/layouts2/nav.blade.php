@@ -3,6 +3,9 @@
         <a href="{{ route('index') }}"><img src="/urias_logo.png" height="30px"></img></a>
     </font></font>
 </div>
+
+
+
 @if (Auth::check())
 
     <p style="text-align:right; font-size:20px">      
@@ -14,8 +17,7 @@
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         {{ csrf_field() }}
     </form>
-              
-   
+    
 @else
     <p style="text-align:right"> 
         <a href="{{route('login') }} "> 
@@ -36,3 +38,4 @@
         <li><a href="#"><font><font>지원부탁</font></font></a></li>
     </ul>
 </nav>
+

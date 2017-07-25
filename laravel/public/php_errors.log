@@ -1,0 +1,27 @@
+[05-Jul-2017 11:55:24 UTC] PHP Fatal error:  Class 'Illuminate\Support\Facades\DB' not found in /home/ubuntu/workspace/laravel/public/php/test.php on line 4
+[05-Jul-2017 11:55:32 UTC] PHP Fatal error:  Class 'Illuminate\Support\Facades\DB' not found in /home/ubuntu/workspace/laravel/public/php/test.php on line 4
+[05-Jul-2017 11:55:47 UTC] PHP Fatal error:  Class 'Illuminate\Support\Facades\DB' not found in /home/ubuntu/workspace/laravel/public/php/test.php on line 4
+[05-Jul-2017 11:56:33 UTC] PHP Fatal error:  Class 'Illuminate\Support\Facades\DB' not found in /home/ubuntu/workspace/laravel/public/php/test.php on line 7
+[05-Jul-2017 11:57:42 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Controller' not found in /home/ubuntu/workspace/laravel/public/php/test.php on line 8
+[05-Jul-2017 11:58:34 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Controller' not found in /home/ubuntu/workspace/laravel/public/php/test.php on line 8
+[05-Jul-2017 11:58:58 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Controller' not found in /home/ubuntu/workspace/laravel/public/php/test.php on line 8
+[05-Jul-2017 12:05:40 UTC] PHP Warning:  mysql_query() expects parameter 1 to be string, resource given in /home/ubuntu/workspace/laravel/public/php/test.php on line 4
+[05-Jul-2017 12:05:40 UTC] PHP Warning:  mysql_query() expects parameter 1 to be string, resource given in /home/ubuntu/workspace/laravel/public/php/test.php on line 5
+[05-Jul-2017 12:07:12 UTC] PHP Warning:  mysql_query() expects parameter 1 to be string, resource given in /home/ubuntu/workspace/laravel/public/php/test.php on line 4
+[05-Jul-2017 12:07:12 UTC] PHP Warning:  mysql_query() expects parameter 1 to be string, resource given in /home/ubuntu/workspace/laravel/public/php/test.php on line 5
+[05-Jul-2017 12:07:12 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/laravel/public/php/test.php on line 7
+[05-Jul-2017 12:07:20 UTC] PHP Warning:  mysql_query() expects parameter 1 to be string, resource given in /home/ubuntu/workspace/laravel/public/php/test.php on line 4
+[05-Jul-2017 12:07:20 UTC] PHP Warning:  mysql_query() expects parameter 1 to be string, resource given in /home/ubuntu/workspace/laravel/public/php/test.php on line 5
+[05-Jul-2017 12:07:20 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/laravel/public/php/test.php on line 7
+[05-Jul-2017 12:07:30 UTC] PHP Warning:  mysql_query() expects parameter 1 to be string, resource given in /home/ubuntu/workspace/laravel/public/php/test.php on line 4
+[05-Jul-2017 12:07:30 UTC] PHP Warning:  mysql_query() expects parameter 1 to be string, resource given in /home/ubuntu/workspace/laravel/public/php/test.php on line 5
+[05-Jul-2017 12:07:30 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/laravel/public/php/test.php on line 7
+[05-Jul-2017 12:29:04 UTC] PHP Notice:  Undefined variable: i in /home/ubuntu/workspace/laravel/public/php/test.php on line 6
+[05-Jul-2017 12:29:04 UTC] PHP Notice:  Undefined variable: path in /home/ubuntu/workspace/laravel/public/php/test.php on line 6
+[05-Jul-2017 12:29:04 UTC] PHP Notice:  Undefined variable: book_img_name in /home/ubuntu/workspace/laravel/public/php/test.php on line 6
+[05-Jul-2017 12:29:04 UTC] PHP Notice:  Undefined variable: book_name in /home/ubuntu/workspace/laravel/public/php/test.php on line 6
+[05-Jul-2017 12:29:04 UTC] PHP Notice:  Undefined variable: book_name in /home/ubuntu/workspace/laravel/public/php/test.php on line 7
+[05-Jul-2017 12:29:04 UTC] PHP Notice:  Undefined variable: book_name in /home/ubuntu/workspace/laravel/public/php/test.php on line 7
+[05-Jul-2017 12:29:04 UTC] PHP Notice:  Undefined variable: i in /home/ubuntu/workspace/laravel/public/php/test.php on line 7
+[05-Jul-2017 12:29:04 UTC] PHP Warning:  file_get_contents(./volunteer_img//_json/1.json): failed to open stream: No such file or directory in /home/ubuntu/workspace/laravel/public/php/test.php on line 7
+[05-Jul-2017 12:29:04 UTC] PHP Fatal error:  Class 'DB' not found in /home/ubuntu/workspace/laravel/public/php/test.php on line 11

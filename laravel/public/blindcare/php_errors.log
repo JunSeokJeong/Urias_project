@@ -1,0 +1,133 @@
+[16-Jun-2017 13:04:56 UTC] PHP Notice:  Undefined index: abc in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 6
+[16-Jun-2017 13:05:01 UTC] PHP Notice:  Undefined index: abc in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 6
+[17-Jun-2017 04:44:22 UTC] PHP Notice:  Undefined index: abc in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 6
+[17-Jun-2017 04:45:32 UTC] PHP Notice:  Undefined index: abc in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 6
+[17-Jun-2017 04:45:51 UTC] PHP Notice:  Undefined index: abc in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 6
+[17-Jun-2017 04:46:37 UTC] PHP Warning:  fopen(NoaNNNos Engineering
+weldingLab
+Department of Social Welfare/Lecture Room
+School of Military office
+School Architecture &Interior Design/Practice Room
+Lounge for Profesor Emeritus
+School of MilitaryNCOs/Practice Room
+Kindergarten/Director's office/Parental counseling
+Matintance Office
+Staff Room/Classroom/Material Room
+School of Smart Business Professors Office
+School of Military NCOs
+Study Rest Lounge
+Sexual Counseling
+Professors Office/Lecture Room
+Health Care Facilities
+Dining Room
+DAEGU Bank
+Transtormer Substation I Water Tank
+Utilities Room
+Utilities Room
+Storeroom
+YEUNG UIN COLLEGE
+Office/Deam of
+Con
+Office/CAD
+Photovoltaic System Lab
+.mp3): failed to open stream: No such file or directory in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 28
+[17-Jun-2017 04:46:37 UTC] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 29
+[17-Jun-2017 04:46:37 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 30
+[17-Jun-2017 04:49:35 UTC] PHP Notice:  Undefined index: abc in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 6
+[17-Jun-2017 04:50:28 UTC] PHP Notice:  Undefined index: abc in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 6
+[18-Jun-2017 04:37:41 UTC] PHP Warning:  fopen(LTE,ill 52%A 오후 1:48
+최신글
+#바나나우유
+3
+semi ni05
+팔로우
+(3빙그鸡
+바나나맛
+贝
+좋아요 8개
+semini05 #편의점 #편의점 우유 #바나나우유 #바나나맛우유 #빙그레
+#스토리웨이 #storyway #binggrae #banana #bananamilk 날씨
+존코 우유 마나고
+A
+Q
+.mp3): failed to open stream: File name too long in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 28
+[18-Jun-2017 04:37:41 UTC] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 29
+[18-Jun-2017 04:37:41 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 30
+[18-Jun-2017 04:45:52 UTC] PHP Warning:  fopen(サント予乃チ之ッ囑ス!! ,, #古
+ㄋ
+圆丁寧煩ヲ芟9疎ヲ補ヒ娶ソ渠ー洮
+igeEN, 똘婆補+8ッ正レ訛ヲ削
+夕票 ヲ앓ヲナス余之ッ見乞ussave #sRF牝
+然トシテ几成ノ地理氣候制度人情風俗古今,
+下ノ勝區名蹟等ヲ審ヵ吕 スルーヲ得テ復タ
+ラス兹11於テヵ子ノ宿,,^^成ル叩チ今
+遢ク世ニ播ス卜云爾
+明治二十年四月
+小松
+.mp3): failed to open stream: File name too long in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 28
+[18-Jun-2017 04:45:52 UTC] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 29
+[18-Jun-2017 04:45:52 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 30
+[18-Jun-2017 05:06:55 UTC] PHP Parse error:  syntax error, unexpected '$url' (T_VARIABLE) in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 13
+[18-Jun-2017 05:07:37 UTC] PHP Parse error:  syntax error, unexpected '$url' (T_VARIABLE) in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 11
+[21-Jun-2017 14:56:03 UTC] PHP Warning:  fopen(どうそうかい
+明日、同窓会に行玆すか。
+せんぱい
+:はい、先輩たちと鈴木先生もいらっしゃるそうなので、行くつもり
+さとう
+です。佐藤さんは行かないんですか。
+きゅうよう
+:はい、急用ができて、行けなくなってしまったんですよ。
+いろいろ せわ
+鈴木先生には色々お世話になったので、お目にかかりたいんですが
+ざんねん
+残念です。
+そうですか。
+:
+しどう
+がくいん
+私も鈴木先生のご指導のおかげで大学院に入ることができたので、
+かんしゃ
+今でも本当に感謝しています。
+つた
+明日、鈴木先生によろしくお伝えください。
+:はい、わかりました。
+.mp3): failed to open stream: File name too long in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 28
+[21-Jun-2017 14:56:03 UTC] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 29
+[21-Jun-2017 14:56:03 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 30
+[25-Jun-2017 05:27:10 UTC] PHP Warning:  fopen(~만 ~하면
+동사의ます형+さえ+すれば/
+명사+さえ+[동사、い형용사·な형용사의ば형]
+四
+제시된 조건만 갖추어 지면, 뒷문장의 조건이 성립한다는 의미를 나타낸다.
+あなたさえよければ、私はそれでいいです。
+·時間さえあれば、そのコンサートに行けるの
+·熱が下がりさえすれば、もう大丈夫です。
+ねっ
+4
+.mp3): failed to open stream: No such file or directory in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 28
+[25-Jun-2017 05:27:10 UTC] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 29
+[25-Jun-2017 05:27:10 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 30
+[25-Jun-2017 05:34:04 UTC] PHP Warning:  fopen(사랑 과일
+U/
+.mp3): failed to open stream: No such file or directory in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 28
+[25-Jun-2017 05:34:04 UTC] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 29
+[25-Jun-2017 05:34:04 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 30
+[27-Jun-2017 02:09:00 UTC] PHP Warning:  fopen(企画に長い歳月を費やした2つの商品A、Bがあり、限定品として
+提供しようと、Aには原価の2割増し、Bには原価の4割増しの定
+価に設定した. A, Bの定価の合計は1560円で、Aの定価はBO
+定価より720円高い Aの原価はいくらか。
+.mp3): failed to open stream: File name too long in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 28
+[27-Jun-2017 02:09:00 UTC] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 29
+[27-Jun-2017 02:09:00 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 30
+[06-Jul-2017 02:55:34 UTC] PHP Warning:  fopen(ごうりてきなねだんにかぎられたぶつりょう。
+こんごのかんりも2ねんかんじゅうぶんにむしょうでやくそくします。
+ごうりてきなねだんで さいこうのスペックのさいしんノートブック持ってください。
+15というさいしんのせいのうを じぶするcpuがあります。
+がめんが 180どでひろがるし かいぎモードもあります。
+かんを
+つかうできます。韓国のドラマとか日本のドラマとかア
+ラマを
+いちどにみることもできます。
+.mp3): failed to open stream: File name too long in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 28
+[06-Jul-2017 02:55:34 UTC] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 29
+[06-Jul-2017 02:55:34 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/laravel/public/blindcare/sound/soundUpload.php on line 30

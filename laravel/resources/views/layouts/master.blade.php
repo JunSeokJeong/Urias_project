@@ -1,22 +1,17 @@
 <html>
     <head>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>시각장애인 정보 - @yield('title')</title>
-      
-    
     </head>
-    
     @include('layouts.css')
     <body>
-       
+        <!-- nav -->
+       @include('layouts.nav') 
+
         <!--container-->
         <div class="container">
-            
-            <!--masthead 네비게이션바-->
-            <div class="masthead">
-                @include('layouts.nav')    
-            </div>
             <!--jumbotron content-->
-            <div class="jumbotron">
+            <div class="jumbotron" style="background-color:white;">
                 @yield('content')
             </div>
             <!--footer-->

@@ -73,8 +73,9 @@
                                <input type="text" class="form-control" id="type" name="type" value="시각장애인"  readonly >
                                 <center>
                                 <button type="button" onclick="first()" class="btn btn-default" >일반인 </button>
-                                <button type="button" onclick="second()" class="btn btn-default" >시각장애인</button>
+                                <button type="button" onclick="fourth()" class="btn btn-default" >보호자</button>
                                 <button type="button" onclick="third()" class="btn btn-default" >관리자</button>
+                                <button type="button" onclick="second()" class="btn btn-default" >시각장애인</button>
                              </center>
                                     </div>
                         
@@ -103,5 +104,8 @@
     }
     function third(){
         document.getElementById('type').value='관리자';
+    }
+    function fourth(){
+        document.getElementById('type').value='보호자';
     }
 </script>

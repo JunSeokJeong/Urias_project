@@ -1,0 +1,15 @@
+//mypage table
+CREATE table message (
+	m_num INT AUTO_INCREMENT PRIMARY KEY,
+	m_title VARCHAR(50) NOT NULL,
+	send_user VARCHAR(50) NOT NULL,
+	for_user VARCHAR(50) NOT NULL,
+	m_content TEXT,
+	is_check boolean, 
+	send_date VARCHAR(30) NOT NULL
+);
+
+INSERT INTO message 
+(m_title, send_user, for_user, m_content, is_check, send_date) 
+VALUE 
+('제목' ,'관리자', '봉사자', 'testbook입니다.', false, '2017-05-17 (17:29:07)');

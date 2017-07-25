@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('title', 'Page Title')
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js">
 
 <style type="text/css">
     /* 테이블 전체 */
@@ -12,7 +14,7 @@
 </style>
 
 <center>
-    <table class="table table-hover">
+    <table class="table">
         <thead>
             <h3> 오역수정 봉사 등록 </h3>
         </thead>

@@ -1,184 +1,148 @@
 @extends('layouts.master')
 @section('title', 'Page Title')
 @section('content')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style type="text/css">
-.lib-panel {
-    margin-bottom: 20px;
-}
-.lib-panel img {
-    width: 80%;
-    background-color: transparent;
+
+.book_title
+{
+    font-size: 36px;
+    color: #42B32F;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 70px;
 }
 
-.lib-panel .row,
-.lib-panel .col-md-6 {
-    padding: 0;
-    background-color: #FFFFFF;
+.book_text
+{
+    margin-bottom: 30px;
+    display:inline-block;                                                                                                                                                
+}
+
+.form-control{
+    font-size: 18px;
+    width:auto;
 }
 
 
-.lib-panel .lib-row {
-    padding: 0 20px 0 20px;
+#cropContainerPreload { 
+    margin-top:60px;
+	width:500px; 
+	height:500px; 
+	position: relative; 
 }
 
-.lib-panel .lib-row.lib-header {
-    background-color: #FFFFFF;
-    font-size: 20px;
-    padding: 10px 20px 0 20px;
-}
-
-.lib-panel .lib-row.lib-header .lib-header-seperator {
-    height: 2px;
-    width: 300px;
-    background-color: #d9d9d9;
-    margin: 7px 10px 7px 0;
-}
-
-.lib-panel .lib-row.lib-desc {
-    position: relative;
-    height: 100%;
-    display: block;
-    font-size: 13px;
-}
-.lib-panel .lib-row.lib-desc a{
-    position: absolute;
-    width: 100%;
-    bottom: 10px;
-    left: 20px;
-}
-
-.row-margin-bottom {
-    margin-bottom: 20px;
-}
-
-.box-shadow {
-    /*box-shadow: 0 0 10px 0 rgba(0,0,0,.10);*/
-    width:1000px;
+#input_area{
+    width:500px;
     height:500px;
+    overflow:scroll;
+    font-size: 18px;
+    -webkit-writing-mode: vertical-rl;
+	-moz-writing-mode: vertical-rl;
+	-ms-writing-mode: tb-rl;
+	-ms-writing-mode: vertical-rl;
+	writing-mode: vertical-rl;
 }
-
-.no-padding {
-    padding: 0;
-}
-
-.lib-img-show{
-    max-width: 100%; /* 이미지의 최대사이즈 */
-    width:auto;/* IE8 */
-    height: auto;
-    vertical-align: bottom;
-}
-
-    
 
 </style>
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>
-// $(function(){
-//     var $setElem = $('.lib-img-show'),
-//     pcName = '_pc',
-//     spName = '_sp',
-//     replaceWidth = 400;
- 
-//     $setElem.each(function(){
-//         var $this = $(this);
-//         function imgSize(){
-//             if(window.innerWidth > replaceWidth) {
-//                 $this.attr('src',$this.attr('src').replace(spName,pcName)).css({visibility:'visible'});
-//             } else {
-//                 $this.attr('src',$this.attr('src').replace(pcName,spName)).css({visibility:'visible'});
-//             }
-//         }
-//         $(window).resize(function(){imgSize();});
-//         imgSize();
-//     });
-// });
-
-var img = document.getElementsByTagName("img");
-vat i=0;
-while (i < img.length) {
-    img[i].setAttribute("style", "max-width: 100%; height: auto;");
-    i++; 
-    
-}
-
-
-</script>
-
-
-
 
 
 <!--오역수정봉사 페이지-->
 <div>
-
-    <!--책제목-->
-    <form action="/library/volunteerInputText/{{$v_num}}/{{$book_name}}/{{$result[0]->page_num}}" method="get">
-
-    <div class="container">
-	<div class="row">
-		<h2>제목</h2>
-	</div>
-    <hr>
-        <div class="row row-margin-bottom col-xs-12 col-sm-6 col-md-8" >
-            <div class="col-md-5 no-padding lib-item" >
-                <div class="lib-panel">
-                    <div class="row box-shadow">
-                        <div class="col-xs-12">
-                            <img class="lib-img-show" src='{{$result[0]->p_img_dir}}'>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="lib-row lib-header">
-                                1차 TEXT
-                                <div class="lib-header-seperator"></div>
-                            </div>
-                            <div class="lib-row lib-desc">
-                               <textarea class="form-control" rows="15" cols="20" name="input_text">{{$result[0]->p_pri_text}}</textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <h2>{{$result[0]->page_num}}/{{$end_page}}</h2>
-        </div>
-    
-
-    
-    
-    
+    <!-- 페이지 이동 버튼 -->
     <div>
-    <!--이전페이지-->
-    @if($result[0]->page_num != 1)
-    <!--<input type="button" value="이전페이지" -->
-    <!--onclick="location.href = '/library/volunteerInputText/{{$v_num}}/{{$book_name}}/{{$result[0]->page_num - 1}}' "/>-->
-    <input class="btn btn-default" type="button" value="이전페이지"
-    onclick="location.href = '/library/volunteerInputText/{{$v_num}}/{{$book_name}}/{{$result[0]->page_num - 1}}' ">
-    @endif
-    <!--다음페이지-->
-    @if($result[0]->page_num != $end_page)
-    <!--<input type="button" value="다음페이지" -->
-    <!--onclick="location.href = '/library/volunteerInputText/{{$v_num}}/{{$book_name}}/{{$result[0]->page_num + 1}}' "/>-->
-    <input class="btn btn-default" type="button" value="다음페이지"
-    onclick="location.href = '/library/volunteerInputText/{{$v_num}}/{{$book_name}}/{{$result[0]->page_num + 1}}' ">
+        @if($result[0]->page_num != 1)
+    
+        <button type="button" class="btn btn-default btn-lg"
+         onclick="location.href = '/library/volunteerInputText/{{$v_num}}/{{$book_name}}/{{$result[0]->page_num - 1}}' ">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 
+        </button>
+        @endif
+    
+        @if($result[0]->page_num != $end_page)
+        <button type="button" class="btn btn-default btn-lg"
+         onclick="location.href = '/library/volunteerInputText/{{$v_num}}/{{$book_name}}/{{$result[0]->page_num + 1}}' ">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> 
+        </button>
+        </div>
+        @endif
     </div>
     
-    @endif
-    <!--제출하기-->
-    @if($is_submit)
-    제출완료
-    @else
-    <!--<br><input type="submit" value="제출하기"/><br>-->
-    <br><button type="submit" class="btn btn-success">제출하기</button><br>
-    @endif
 
+    <!--책제목-->
+    <form action="/library/volunteerInputText" method="post" enctype="multipart/form-data">
+    {{csrf_field()}}
+    <input type="hidden" name="num" value="{{$v_num}}">
+    <input type="hidden" name="book_name" value="{{$book_name}}">
+    <input type="hidden" name="page_num" value="{{$result[0]->page_num}}">
+     <div class="container">
+        <div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 class="book_title"><a href="/library/volunteerInfo/{{$v_num}}/{{$book_name}}">{{$book_name}}</a></h1>
+        </div>
+
+        <br/>
+            <br><br>
+            <div class="book_text col-md-6">
+               <div id="cropContainerPreload"></div>
+            </div>
+            
+            <div class="book_text col-md-6">
+                <div md-form>
+                    <label for="form1"><h2>1차 TEXT</h2></label><br>
+                    <hr>
+                    <div id="input_area" CONTENTEDITABLE='true'>
+                        {{$result[0]->p_pri_text}}
+                    </div>
+                    <input type="hidden" id="input_save" class="form-control" name="input_text" value="{{$result[0]->p_pri_text}}">
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+    
+    <!-- 페이지 표시 -->
+    <div>
+        <h2>{{$result[0]->page_num}}/{{$end_page}}</h2>
+    </div>
+        
+    <div>
+        <!--제출하기-->
+        @if($is_submit)
+        <h5>제출완료</h5>
+        @else
+        <br><button type="submit" class="btn btn-success">제출하기</button><br>
+        @endif
+        <a href="{{ route('vList') }}">목록으로</a>
     </form>
+    
 </div><!--end div volunteerInfo-->
 
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	    <script src="/js/jquery.mousewheel.min.js"></script>
+   	    <script src="/js/croppic.js"></script>
+        <script>
+        //이미지 확대 스크립트
+		var croppicContainerPreloadOptions = {
+				loadPicture:'{{$result[0]->p_img_dir}}',
+				enableMousescroll:true,
+				onError:function(errormessage){ console.log('onError:'+errormessage) }
+		}
+		var cropContainerPreload = new Croppic('cropContainerPreload', croppicContainerPreloadOptions);
+		
+		
+		//텍스트 하이라이트
+		var input_area = document.getElementById('input_area');
+		var input_save = document.getElementById('input_save');
+		
+		input_area.onkeydown = function() {
+            document.execCommand('foreColor',true, 'ff0000');
+            input_save.value = input_area.innerHTML;
+        };
+	</script>
 
 @endsection

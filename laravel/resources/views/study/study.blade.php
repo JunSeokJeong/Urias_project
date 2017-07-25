@@ -1,141 +1,119 @@
 @extends('layouts.master')
 @section('title', 'Page Title')
 @section('content')
-
-    <div class="row"> 
-          <div class="col-md-3">  
-          <br> 
-        
-          </div>
-          
-          <div class="col-md-6">
-              <center> <h1>{{$id}}.{{$title}} </h1></center>
-               <br><br>
-               
-           
-            <audio id="soundbar" controls preload="none"  ontimeupdate="myFunction(this)"> 
-             <!--ontimeupdate 재생중일시 해당 함수를 계속 호출함 -->
-             
-              <source src="https://html-test-csj01113.c9users.io/mp3/study_{{$id}}.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-                </audio>
-                <br><br>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />
+<style>
+       .white_btn{
+              background-color:white;
+              color:black;
               
-               
-            </div>
-            
-
-          
-          <div class="col-md-3">
-          </div>
-                    
-        </div> 
-            
-        
-           <div class="row"> 
-          <div class="col-md-3">  
-          <br> 
-        
-          </div>
-          
-          <div class="col-md-6">
-              
-             <button type="button" class="btn btn-default" id="space" tabindex='1'>일시정지 스페이스바</button>
-             <button type="button" class="btn btn-default" id="forward" tabindex='2'>전진 L</button>
-             <button type="button" class="btn btn-default" id="back" tabindex='3'>후진 J</button> <br>
-             <button type="button" class="btn btn-default" id="fast" tabindex='4'>빠르게 I</button>
-             <button type="button" class="btn btn-default" id="general" tabindex='5'>기본속도 K</button>
-             <button type="button" class="btn btn-default" id="slow" tabindex='6'>느리게 콤마</button> <br>
-             <button type="button" class="btn btn-default" id="up"tabindex='7'>크게 Q</button>
-             <button type="button" class="btn btn-default" id="down" tabindex='8'>작게 W</button>
-           
-           @if($id==12)
-           <a href="/study/1"<button type="button" name="next" class="btn btn-default" tabindex='9'>처음단원이동 N</button></a>
-                
-            @else
-             <a href="/study/{{$id+1}}"<button type="button" name="next" class="btn btn-default" tabindex='9'>다음단원이동 N</button></a>
-                @endif            
-             
-            
-                <center> <h1>출력 되는 글자 </h1></center>
-               <br><br>
-              <div class="panel-body" style="height: auto; width: 100%; border:5px solid black;"><center>
-                <p style="font-size:130px" id="outText"></p>
-              </div></center>
-            </div>
-            
-             <br><br>
-                
-          
-          <div class="col-md-3">
-             
-          </div>
-                    
-        </div> 
-        
-        
-        <div class="row"> 
-          <div class="col-md-4">
-           
-          </div>
-          <div class="col-md-4">
-          <br>  
-           <button type="button" class="btn btn-default "tabindex="10" onclick="back()">이전메뉴로</button> &nbsp;
-          <a href="{{ route('study') }}"> <button type="button" class="btn btn-default "tabindex="11">초기메뉴로</button></a> &nbsp;
-           <button type="button" class="btn btn-default "tabindex="12">화면맨위로</button>
-           
-          </div>
-          <div class="col-md-4">
-           
-          </div>
-                    
-        </div> 
-        <span id="demo"></span>
-
-  </div>
-  
-  <script type="text/javascript">
-  var secondlate;//이벤트 중복호출을 방지
-  document.getElementById("outText").innerHTML="無";
-
-   function myFunction(event) { //재생중일때 계속 호출됨 
-    var late=Math.ceil(event.currentTime); // 현재 재생시간을 반올림함 
+       }
+       .bigger{
+              color:red;
+       }
+       .font_black{
+              color:black;
+       }
+       .move_btn{
+              width:250px;
+       }
+</style>
+<script type="text/javascript" src="../js/socket.io.js"></script>
+<script type="text/javascript">
    
-
-    
-    if(late ==3 && secondlate!=late){ //이전 재생초와 다음초가 같을시 작동 하지않도록 
-    
-        alert("あ");
-        document.getElementById("outText").innerHTML="あ";
-         secondlate=late;
-     
-    }
-    else if(late ==5 && secondlate!=late)
-    {
-         
-         alert("か");
-        document.getElementById("outText").innerHTML="か";
-        secondlate=late;
+   var studyNumber = {{$study->id}};
+   console.log(studyNumber);
+   
+   var late;// 재생시간
+   var text=new Array();//텍스트를 저장할 배열
+   var engtext=new Array();//텍스트의 알파벳 저장하는 배열 
+   var second=new Array();//시간을 저장하는 배열 
+   
+   pushAram(studyNumber);
+   //페이지 들어왔을때 app에게 push 알람을 보내는 역활
+   function pushAram(studyNum){
+       var socket = io.connect('http://urias-heoyongjun.c9users.io:8082');
+       //이벤트 발생
+       
+      socket.emit('study start event',{hello:studyNum});//강의 번호 전달
+       //이벤트 대기
+      socket.on('php event',function(data){
+         console.log(data);
+      });   
+   }
+   var id = '{{Auth::user()->email}}';
+   
+   function pushEvent(){
+       //socket.io 서버 연결
+       var socket = io.connect('http://urias-heoyongjun.c9users.io:8081');
+       //이벤트 발생(수정 필요)
+       socket.emit('study start web',{id:id});//auth로 수정
+       //이벤트 대기
+      socket.on('receive web',function(data){
+         play();
+      });
+     }
+   
+   
+   
+    function timesend(sec){// 시간을 배열에 저장하는 메서드  
+            second.push(sec);
+   }
+   
+   function textsend(string){//텍스트를 배열에 저장하는 메서드
+           text.push(string);
+          
+   }
+   function engtextsend(string){//텍스트를 배열에 저장하는 메서드
+           engtext.push(string);
+          
+   }
+   var count=0;
+   var one;
+   function aduino(soundlate){//강의 재생이될때 계속 호출되는 메서드 
+    　
+    　
+     for(var i=0;i<second.length;i++){
+         if(soundlate==second[i]){// 강의시간과 시간배열에 있는 시간이 동일하다면 
+             if(soundlate!=one){
+                 
+            document.getElementById('outText').innerHTML=text[i]; 
+            document.getElementById('outText2').innerHTML="<img src='https://urias-heoyongjun.c9users.io/tenPic/"+engtext[i]+".gif' width='200px' height='200px'>";
         
-    }
-     else if(late ==7 && secondlate!=late)
-    {
-         alert("し");
-        document.getElementById("outText").innerHTML="し";
-         secondlate=late;
+            one=soundlate;
+            count++;
+             pushEvent();
+             stop();
+             } 
+             
+             
+         }
+     }
+   }
+   //정지메서드 재생 메서드 만들기 
+   
+  function stop(){ //정지만 하는 메서드 
+       $("#soundbar").trigger('pause');
+  }
+  function play(){ // 재생하는 메서드 
+       $("#soundbar").trigger('play');
+  }
+ 
+    
+    
+   function myFunction(event) { //재생중일때 계속 호출됨 
+   
+   
+   late=Math.round(event.currentTime); // 현재 재생시간을 반올림함 
      
-    }
-     else if(late ==10 && secondlate!=late)
-    {
-         alert("ゆ");
-        document.getElementById("outText").innerHTML="ゆ";
-         secondlate=late;
-    }
+    aduino(late);//상위 참고바람 
+    
 }
  
   
   function back(){ //뒤로가기 함수 
-       history.go(-1);
+     history.go(-1);
+   
   }
   
   
@@ -260,5 +238,135 @@ if ( event.which == 74 ) {//소문자 j 키 후진
       
        
 });
+ </script>
+ 
+
+ 
+    <div class="row"> 
+          <div class="col-md-3">  
+          <br> 
+        
+          </div>
+          
+          <div class="col-md-6">
+              <center> <h1>{{$study->id}}.{{$study->title}}</h1></center>
+               <br><br>
+               
+           
+            <audio id="soundbar" controls preload="none"  ontimeupdate="myFunction(this)"> 
+             <!--ontimeupdate 재생중일시 해당 함수를 계속 호출함 -->
+                
+              <source src="{{$study->file_src}}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <br><br>
+              
+               
+            </div>
+            
+
+          
+          <div class="col-md-3">
+          </div>
+                    
+        </div> 
+            
+        
+           <div class="row"> 
+          <div class="col-md-3">  
+          <br> 
+        
+          </div>
+          
+          <div class="col-md-6">
+              
+             <button class="white_btn btn btn-lg" id="space" tabindex='1'><span class="font_black">일시정지 스페이스바</span></button>
+             <button class="white_btn btn btn-lg" id="forward" tabindex='2'><span class="font_black">전진 L</span></button>
+             <button class="white_btn btn btn-lg" id="back" tabindex='3'><span class="font_black">후진 J</span></button> <br>
+             <button class="white_btn btn btn-lg" id="fast" tabindex='4'><span class="font_black">빠르게 I</span></button>
+             <button class="white_btn btn btn-lg" id="general" tabindex='5'><span class="font_black">기본속도 K</span></button>
+             <button class="white_btn btn btn-lg" id="slow" tabindex='6'><span class="font_black">느리게 콤마</span></button> <br>
+             <button class="white_btn btn btn-lg" id="up" tabindex='7'><h4 class="bigger">크게 Q</h4></button>
+             <button class="white_btn btn btn-lg" id="down" tabindex='8'><span class="font_black">작게 W</span></button>
+           
+           @if($study->id==12)
+           <a href="/study/1"<button name="next" class="btn btn-lg" tabindex='9'><span class="font_black">처음단원이동 N</span></button></a>
+                
+            @else
+             <a href="/study/{{$study->id +1}}"<button name="next" class="btn btn-lg" tabindex='9'><span class="font_black">다음단원이동 N</span></button></a>
+                @endif            
+             
+            
+                <center> <h1>출력 되는 글자 </h1></center>
+               <br><br>
+               
+              <div class="panel-body" style="height: auto; width: auto; border:5px solid black;" >
+                     <div class="row">
+                                     <div class="col-md-6"><p style="font-size:130px" id="outText" style="width: 50%;"> </p> </div>
+                                     <div class="col-md-6"><p  id="outText2" style="width: 50%;">  </p> </div>
+                     </div>
+            
+              </div>
+             
+             
+              
+            </div>
+            
+             <br><br>
+                
+          
+          <div class="col-md-3">
+             
+          </div>
+                    
+        </div> 
+        
+        
+        <div class="row"> 
+          <div class="col-md-4">
+           
+          </div>
+          <div class="col-md-4">
+          <br>
+          <a href="/quiz/{{$study->id}}" style="color:black;">
+          <button class="btn btn-orange move_btn" tabindex="10">퀴즈 풀기</button></a>
+          <button class="btn btn-dark-green move_btn" tabindex="11" onclick="back()">이전메뉴로</button>
+          <a href="{{ route('study') }}"><button  class="btn btn-dark-green move_btn" tabindex="12">초기메뉴로</button></a>
+          <button class="btn btn-dark-green move_btn" tabindex="13">화면맨위로</button>
+           
+          </div>
+          <div class="col-md-4">
+           
+          </div>
+                    
+        </div> 
+         
+        
+        <span id="demo"></span>
+         
+        
+
+  </div>
+
+  <script>
+  
+//컨트롤러에서 텍스트와 시간을 받아와서 자바스크립트 배열에 메서드로 입력함 
+@foreach($kanji as $record)
+       
+textsend('{{$record}}'); 
+@endforeach 
+
+@foreach($second as $record)
+       
+timesend('{{$record}}');   
+@endforeach 
+
+@foreach($engkanji as $record)
+       
+engtextsend('{{$record}}');   
+@endforeach 
+    
+ 
+
  </script>
 @endsection

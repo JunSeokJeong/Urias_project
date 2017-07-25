@@ -1,0 +1,17 @@
+//falling table
+CREATE table falling_location (
+	f_num INT AUTO_INCREMENT PRIMARY KEY,
+	l_title VARCHAR(50) NOT NULL,
+	falling_user VARCHAR(50) NOT NULL,
+	register_user VARCHAR(50) NOT NULL,
+	f_content TEXT,
+	f_date VARCHAR(30) NOT NULL,
+	lat VARCHAR(50) NOT NULL, 
+	lng VARCHAR(50) NOT NULL,
+       falling_img VARCHAR(100) NOT NULL
+);
+
+INSERT INTO falling_location 
+(l_title, falling_user, register_user, f_content, f_date, lat, lng, falling_img) 
+VALUE 
+('위치이름' ,'시각장애인', '보호자', '넘어졌넹 아코>^<', '2017-05-17 (17:29:07)', 34.8966353, 127.6201968, '/urias_logo.png');

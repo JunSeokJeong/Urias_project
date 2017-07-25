@@ -1,0 +1,14 @@
+create table book_list(
+b_no int unsigned not null primary key auto_increment,
+book_name varchar(30),
+book_writer varchar(20),
+book_registrater varchar(30),
+registration_date varchar(40),
+text_file_dir varchar(50),
+sound_file_dir varchar(50),
+book_img_dir varchar(50),
+book_page_num varchar(40),
+book_intro varchar(100),
+book_genre varchar(30)
+);
+
