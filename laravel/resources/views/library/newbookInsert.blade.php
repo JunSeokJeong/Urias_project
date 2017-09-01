@@ -33,21 +33,23 @@
                 <th>장르 : </th>
                 <td><input type="text" name="genre" class="form-control"/></td>
             </tr>
-            <tr>
-            <!-- 버튼 -->
-                <td colspan="2">
-                    <button class="btn btn-default"  type="submit" >등록하기</button>
-                    <a class="btn btn-default" href="{{ route('vList') }}" role="button">목록으로</a>
-                </td>
-            </tr>
             
-        </form>
+           
+            
+     
         </tbody>
     </table>
+    <hr>
+    <center>
+            <!-- 버튼 -->
+                
+                    <button class="btn btn-default"  type="submit" >등록하기</button>
+                    <a class="btn btn-default" href="{{ route('vList') }}" role="button">목록으로</a>
+                
+           </center>
+               </form>
 </center>
 
-
-<a href="{{ route('vList') }}">목록으로</a>
 
 
 </div><!--end div volunteerInfo-->

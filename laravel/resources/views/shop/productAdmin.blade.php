@@ -19,7 +19,7 @@
                      }else{
                             
                      }
-              }
+              }      
               function modify(product_id){
                       if(confirm('수정하시겠습니까?')==true){
                             location.href='/shop/productModifyPage/'+product_id;

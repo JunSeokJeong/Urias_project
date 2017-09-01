@@ -25,8 +25,15 @@ class libraryController extends Controller{
     
     //도서목록 페이지 이동
     public function bookList(){
-        $result = Book_list::all(); 
-        return view('library.bookList')->with('result',$result);
+        $book = Book_list::orderBy('b_no','desc')->get();
+        // orderby('b_no','desc')
+        //$book = DB::table('book_lists')->get();
+        $r_book = DB::table('rental_lists')->get();
+        // var_dump($book);
+        return view('library.bookList', [
+            'book' => $book,
+            'r_book' => $r_book
+        ]);
     }//end bookList
     
     //나의 도서 목록 페이지 이동
@@ -40,11 +47,13 @@ class libraryController extends Controller{
     //나의 도서 목록 페이지 이동
     public function myBookListApp(){
         // $callback = $_GET['callback'];
+        
         // $result = DB::table('aduinoPaths')->where('id',1)->get();
         // echo $callback . "(" . json_encode($result) . ")";
         $callback = $_GET['callback'];
         $email = $_GET['email'];
         $result = DB::table('rental_lists')->where('user_email',$email)->get();
+        
         
         echo $callback . "(" . json_encode($result) . ")";
     

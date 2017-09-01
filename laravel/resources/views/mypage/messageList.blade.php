@@ -9,9 +9,14 @@
       border: 0px;
     }
     .thcolor{
-        background-color:#0072B2;
+        background-color:#D55E00;
         color:white;
     }
+.go_btn{
+   background-color:white;
+   color:black;
+   width:200px;
+}
 </style>
 
 <div class="page-header">
@@ -57,7 +62,7 @@
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <!--<button type="button" class="btn btn-dark-green" onclick="upfocus()"><h4>메뉴 처음으로</h4></button>-->
-            <button type="button" class="btn btn-dark-green" onclick="location.href='{{ route('index') }}'"><h4>메인으로</h4></button>
+            <button type="button" class="btn btn-lg go_btn" onclick="location.href='{{ route('index') }}'"><h4 style="color:black;">메인으로</h4></button>
         </div>
     </div>
 </center>

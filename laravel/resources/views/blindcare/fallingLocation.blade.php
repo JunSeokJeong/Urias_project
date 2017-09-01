@@ -1,6 +1,5 @@
 @extends('layouts.fall_master')
 @section('title', 'Page Title')
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />
 <style>
     #map {

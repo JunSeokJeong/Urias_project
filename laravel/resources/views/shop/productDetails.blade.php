@@ -17,7 +17,18 @@
               }
        }
        
+       function popupOpen(product_id){
+
+	var popUrl = "/shop/popup/"+product_id;	//팝업창에 출력될 페이지 URL
+
+	var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+
+		window.open(popUrl,"",popOption);
        
+	}
+
+
+
 </script>
 @foreach($product as $pro)
 
@@ -39,10 +50,13 @@
               @if(Auth::user()->type == '관리자')
        <button class="btn btn-dark-green" onclick="location.href='{{route('admin')}}'">관리</button>
        @elseif(Auth::user()->type == '시각장애인')       
-       <button onclick="location.href='/shop/productBuy/{{$pro->product_id}}'" class="btn btn-dark-green">구매</button>
+       <!--<button onclick="location.href='/shop/productBuy/{{$pro->product_id}}'" class="btn btn-dark-green">구매</button>-->
+       <button onclick="popupOpen({{$pro->product_id}});" class="btn btn-dark-green">구매</button>
        <button onclick="basket({{$pro->product_id}});" class="btn btn-dark-green">담기</button>
+       <input type="hidden" name="hiddens" value="abc"/>
        <button onclick="location.href='{{ route('shop') }}'" class="btn btn-primary">목록으로</button>
        @endif
 </div>
+
 @endforeach
 @endsection

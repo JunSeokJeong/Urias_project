@@ -2,22 +2,6 @@
 @section('title', 'Page Title')
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />
-<style>
-       .white_btn{
-              background-color:white;
-              color:black;
-              
-       }
-       .bigger{
-              color:red;
-       }
-       .font_black{
-              color:black;
-       }
-       .move_btn{
-              width:250px;
-       }
-</style>
 <script type="text/javascript" src="../js/socket.io.js"></script>
 <script type="text/javascript">
    
@@ -242,111 +226,105 @@ if ( event.which == 74 ) {//소문자 j 키 후진
  
 
  
-    <div class="row"> 
-          <div class="col-md-3">  
-          <br> 
-        
-          </div>
-          
-          <div class="col-md-6">
-              <center> <h1>{{$study->id}}.{{$study->title}}</h1></center>
-               <br><br>
-               
-           
-            <audio id="soundbar" controls preload="none"  ontimeupdate="myFunction(this)"> 
-             <!--ontimeupdate 재생중일시 해당 함수를 계속 호출함 -->
-                
-              <source src="{{$study->file_src}}" type="audio/mpeg">
-                Your browser does not support the audio element.
-                </audio>
-                <br><br>
-              
-               
-            </div>
-            
 
-          
-          <div class="col-md-3">
-          </div>
-                    
-        </div> 
-            
-        
-           <div class="row"> 
-          <div class="col-md-3">  
-          <br> 
-        
-          </div>
-          
-          <div class="col-md-6">
+
+<style>
+       .white_btn{
+              background-color:white;
+              color:black;
+              width:210px;
+              height:70px;
               
-             <button class="white_btn btn btn-lg" id="space" tabindex='1'><span class="font_black">일시정지 스페이스바</span></button>
-             <button class="white_btn btn btn-lg" id="forward" tabindex='2'><span class="font_black">전진 L</span></button>
-             <button class="white_btn btn btn-lg" id="back" tabindex='3'><span class="font_black">후진 J</span></button> <br>
-             <button class="white_btn btn btn-lg" id="fast" tabindex='4'><span class="font_black">빠르게 I</span></button>
-             <button class="white_btn btn btn-lg" id="general" tabindex='5'><span class="font_black">기본속도 K</span></button>
-             <button class="white_btn btn btn-lg" id="slow" tabindex='6'><span class="font_black">느리게 콤마</span></button> <br>
-             <button class="white_btn btn btn-lg" id="up" tabindex='7'><h4 class="bigger">크게 Q</h4></button>
-             <button class="white_btn btn btn-lg" id="down" tabindex='8'><span class="font_black">작게 W</span></button>
-           
-           @if($study->id==12)
-           <a href="/study/1"<button name="next" class="btn btn-lg" tabindex='9'><span class="font_black">처음단원이동 N</span></button></a>
-                
-            @else
-             <a href="/study/{{$study->id +1}}"<button name="next" class="btn btn-lg" tabindex='9'><span class="font_black">다음단원이동 N</span></button></a>
-                @endif            
-             
-            
-                <center> <h1>출력 되는 글자 </h1></center>
-               <br><br>
-               
-              <div class="panel-body" style="height: auto; width: auto; border:5px solid black;" >
-                     <div class="row">
-                                     <div class="col-md-6"><p style="font-size:130px" id="outText" style="width: 50%;"> </p> </div>
-                                     <div class="col-md-6"><p  id="outText2" style="width: 50%;">  </p> </div>
+       }
+       .bigger{
+              color:red;
+       }
+       .font_black{
+              color:black;
+       }
+       .top{
+              width:420px;
+       }
+       .move_btn{
+              width:250px;
+              float:left;
+       }
+       
+       .page_left{
+              width:500px;
+              height:500px;
+              float:left;
+              /*padding:30px;*/
+       }
+       .page_right{
+              width:500px;
+              height:500px;
+              float:left;
+       }
+       .page_btn{
+              width:1200px;
+              height:50px;
+              padding:20px;
+              /*float:left;*/
+       }
+</style>
+
+<div class="row">
+       <div class="page-header">
+              <h1>{{$study->id}}.{{$study->title}}</h1>
+       </div>
+       
+       <div class="content">
+              <div class="quiz_page">
+                     <audio id="soundbar" controls preload="none"  ontimeupdate="myFunction(this)"> 
+                     <!--ontimeupdate 재생중일시 해당 함수를 계속 호출함 -->
+                     <source src="{{$study->file_src}}" type="audio/mpeg">
+                     Your browser does not support the audio element.
+                     </audio>
+
+                     <div class="page_left">
+                     <center><h2>조절 버튼</h2></center>
+                            <button class="top white_btn btn btn-lg" id="space" tabindex='1'><h4 class="font_black">일시정지스페이스바</h4></button><br>
+                            <button class="white_btn btn btn-lg" id="forward" tabindex='2'><h4 class="font_black">전진 L</h4></button>
+                            <button class="white_btn btn btn-lg" id="back" tabindex='3'><h4 class="font_black">후진 J</h4></button><br>
+                            <button class="white_btn btn btn-lg" id="fast" tabindex='4'><h4 class="font_black">빠르게 I</h4></button>
+                            <button class="white_btn btn btn-lg" id="general" tabindex='5'><h4 class="font_black">기본속도 K</h4></button>
+                            <button class="white_btn btn btn-lg" id="slow" tabindex='6'><h4 class="font_black">느리게 콤마</h4></button>
+                            <button class="white_btn btn btn-lg" id="up" tabindex='7'><h4 class="bigger">크게 Q</h4></button>
+                            <button class="white_btn btn btn-lg" id="down" tabindex='8'><h4 class="font_black">작게 W</h4></button>
+                         
+                            @if($study->id==12)
+                            <a href="/study/1"></a><button name="next" class="btn btn-lg" tabindex='9'><h4 class="font_black">처음단원이동 N</h4></button></a>
+                              
+                            @else
+                            <a href="/study/{{$study->id +1}}"></a><button name="next" class="white_btn btn btn-lg" tabindex='9'><h4 class="font_black">다음단원이동 N</h4></button></a>
+                            @endif  
                      </div>
-            
+                     <div class="page_right">
+                            <center><h2>출력 되는 글자 </h2></center>
+                            <br>
+                             
+                            <div class="panel-body" style="height:400px; width:480px; border:5px solid black;" >
+                                   <div class="row">
+                                          <div class="col-md-6">
+                                                 <p style="font-size:80px" id="outText" ></p>
+                                          </div>
+                                          <div class="col-md-6">
+                                                 <p id="outText2" style="width: 50%;"></p>
+                                          </div>
+                                   </div>
+                            </div>
+                     </div>
+                     <div class="page_btn">
+                            <a href="/quiz/{{$study->id}}" style="color:black;">
+                            <button class="btn btn-orange move_btn" tabindex="10">퀴즈 풀기</button></a>
+                            <button class="btn btn-dark-green move_btn" tabindex="11" onclick="back()">이전메뉴로</button>
+                            <a href="{{ route('study') }}"><button  class="btn btn-dark-green move_btn" tabindex="12">초기메뉴로</button></a>
+                            <button class="btn btn-dark-green move_btn" tabindex="13">화면맨위로</button>
+                     </div>
               </div>
-             
-             
-              
-            </div>
-            
-             <br><br>
-                
-          
-          <div class="col-md-3">
-             
-          </div>
-                    
-        </div> 
-        
-        
-        <div class="row"> 
-          <div class="col-md-4">
-           
-          </div>
-          <div class="col-md-4">
-          <br>
-          <a href="/quiz/{{$study->id}}" style="color:black;">
-          <button class="btn btn-orange move_btn" tabindex="10">퀴즈 풀기</button></a>
-          <button class="btn btn-dark-green move_btn" tabindex="11" onclick="back()">이전메뉴로</button>
-          <a href="{{ route('study') }}"><button  class="btn btn-dark-green move_btn" tabindex="12">초기메뉴로</button></a>
-          <button class="btn btn-dark-green move_btn" tabindex="13">화면맨위로</button>
-           
-          </div>
-          <div class="col-md-4">
-           
-          </div>
-                    
-        </div> 
-         
-        
-        <span id="demo"></span>
-         
-        
-
-  </div>
+       </div>
+</div>
 
   <script>
   

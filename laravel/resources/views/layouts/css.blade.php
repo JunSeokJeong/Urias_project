@@ -48,16 +48,23 @@ body {
 .navbar-default {
   font-size: 1.15em;
   font-weight: 400;
-  background-color: #006b96;
+  background-color: 	#00A328;
+    
+  /*
+  찐한 초록색 
+  background-color: 	#00A328;
+  */  
+  
+  
   /*padding: 10px;*/
   border: 0px;
   border-radius: 0px;
 }
 .container-fluid{
-    background-color: #006b96;
+    background-color: #00A328;
 }
 .nav{
-    background-color: #006b96;
+    background-color: #00A328;
 }
       
      </style>

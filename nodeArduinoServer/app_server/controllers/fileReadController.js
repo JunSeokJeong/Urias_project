@@ -42,6 +42,8 @@ module.exports.quiz=function(req, res, next) {
   
   var id   = req.query.id;
   var path = req.query.path;
+  console.log(id);
+  console.log(path);
   dbConnect.quizList(quizListQuery,id,req,res);
   
 }

@@ -92,7 +92,7 @@
             <div class="book_text col-md-6">
                 <h3>오역수정 TEXT</h3>
                 <hr>
-                <div id="check_area" CONTENTEDITABLE='true'>
+                <div id="check_area" CONTENTEDITABLE='false'>
                     {!!$submit_txt!!}
                 </div>
                 <input type="hidden" name="check_text" id="check_save" value="{{$submit_txt}}"/>

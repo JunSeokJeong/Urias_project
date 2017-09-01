@@ -1,6 +1,9 @@
 @extends('layouts.index_master')
 @section('title', '메인')
 @section('content')
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />
 <style>
   .news{
@@ -12,6 +15,9 @@
   .font{
     color:black;
   }
+  .white_btn{
+    background-color:white;
+  }
 
 </style>
 
@@ -20,7 +26,7 @@
     <div class="row">
         
         <!-- library news -->
-        <div class="col-sm-4">
+        <div class="col-md-4">
           <!--<button class="button waves-effect waves-light btn-large white" alt="도서관 소식" style="color:black;"><h4>도서관 소식</h4></button>-->
           <button type="button" class="news btn btn-default" alt="도서관 소식"><h2 class="font">도서관 소식</h2></button>
           <table class="table table-hover">
@@ -35,18 +41,22 @@
             @endforeach
           
           </table>
-          <p><a class="btn btn-primary" href="{{ route('boardList') }}" role="button"><font><font>도서관 소식 세부 정보보기</font></font></a></p>
+          <p>
+            <a class="btn white_btn" href="{{ route('boardList') }}" role="button">
+              <font style="color:black;">도서관소식 세부 정보 보기</font>
+            </a>
+          </p>
         </div> <!-- /col-lg-4 -->
+       
         
         
-        
-        <div class="col-sm-4">
+        <div class="col-md-4">
           <button type="button" class="news btn btn-default" alt="실시간 Q&A"><h2 class="font">실시간 Q&A</h2></button>
            <table class="table table-hover">
             <tr>
-              <th class="col-lg-1">제목</th>
-              <th class="col-lg-1">답변수</th>
-              <th class="col-lg-1">작성일</th>
+              <th class="col-lg-6">제목</th>
+              <th class="col-lg-2">답변수</th>
+              <th class="col-lg-4">작성일</th>
             </tr>
             <?php $count = 0; ?>
             @foreach($question as $value)
@@ -69,16 +79,20 @@
             </tr>
             @endforeach
           </table>
-          <p><a class="btn btn-primary" href="{{ route('qList') }}" role="button"><font><font>실시간 Q&A 세부 정보보기</font></font></a></p>
+          <p>
+            <a class="btn btn-lg white_btn" href="{{ route('qList') }}" role="button">
+              <font style="color:black;">실시간Q&A세부정보보기</font>
+            </a>
+          </p>
         </div>
-
-        <div class="col-sm-4">
+       
+        <div class="col-md-4">
           <button class="news btn btn-default" alt="제작 도서 목록" style="background-color:white;"><h2 class="font">제작 도서 목록</h2></button>
           <table class="table table-hover">
             <tr>
-              <th >책 이름</th>
-              <th class="col-lg-1">작성자</th>
-              <th class="col-lg-1">진행률</th>
+              <th class="col-lg-5" >책제목</th>
+              <th class="col-lg-3">작성자</th>
+              <th class="col-lg-4">진행률</th>
             </tr>
             
           @foreach($result as $book)
@@ -116,9 +130,13 @@
             
           @endforeach
           </table>
-          <p><a class="btn btn-primary" href="{{ route('vList') }}" role="button"><font><font>제작 도서 목록 세부 정보보기</font></font></a></p>
+          <p>
+            <a class="btn btn-lg white_btn" href="{{ route('vList') }}" role="button">
+              <font style="color:black;">제작 도서 세부 정보 보기</font>
+            </a>
+          </p>
         </div> <!-- /col-lg-4 -->
-        
+         
       </div><!-- /row -->          
       
 

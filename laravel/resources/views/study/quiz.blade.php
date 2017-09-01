@@ -1,24 +1,9 @@
-@extends('layouts.master')
+@extends('layouts.fall_master')
 @section('title', 'Page Title')
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />
   
 <script type="text/javascript" src="../js/socket.io.js"></script>
-
-<style type="text/css">
-       .btn{
-              width:300px;
-             
-       }
-       .move_btn{
-              width:170px;
-       }
-       .quiz{
-              width:650px;
-       }
-       
-</style>
-
 <script type="text/javascript">
 
    var examples;    
@@ -29,7 +14,8 @@
    var quizsounds=new Array();
    var selectanswers=new Array();
    var quizplaycount=0;
-  
+   var dbAnswer=new Array();
+   var dbChoice=new Array();
    var quizNumber = {{$quiz->id}};
    var id = '{{Auth::user()->email}}';
    pushAramEvent(quizNumber)
@@ -58,6 +44,11 @@
      }
    function back(){
           
+   }
+   
+   function dbUrl(str,str2){
+          dbAnswer.push(str);
+          dbChoice.push(str2);
    }
    
     function timesend(sec){// 시간을 배열에 저장하는 메서드 
@@ -113,14 +104,17 @@
         for(var i=0;i<answer.length;i++){
                if(answer[i]==selectanswers[i]){
                         tbody.innerHTML+=" <button class='quiz btn btn-blue-grey'>"+(i+1) + "번 선택은  "+selectanswers[i]+"번 답은 "+answer[i]+"번  정답입니다 </button> <br><br>";
+                        dbUrl(answer[i],selectanswers[i]);
                }
                if(answer[i]!=selectanswers[i]){
                          tbody.innerHTML+=" <button class='quiz btn btn-blue-grey'>"+(i+1) + "번 선택은 " +selectanswers[i]+ "번 답은 "+answer[i]+" 번 오답입니다 </button> <br><br>";
+                         dbUrl(answer[i],selectanswers[i]);
                }
         }
          tbody.innerHTML+=" <button class='quiz btn btn-brown'>총 "+answer.length+"개중에 "+result()+"개 맞추셨습니다 </button> <br><br>";
-         tbody.innerHTML+=" <button class='btn btn-indigo' onclick=window.location.reload(true)> 다시 풀기 </button></a> <br><br>";
-
+          tbody.innerHTML+="<a href='/resultprocess/"+dbAnswer[0]+dbAnswer[1]+dbChoice[0]+dbChoice[1]+"'> <button class='btn btn-indigo' > 결과 저장 </button></a> <br><br>";
+       //   <button class='btn btn-indigo' onclick=window.location.reload(true)> 다시 풀기 </button></a> <br><br>"
+       
         }
         }, 6000); 
 
@@ -129,23 +123,33 @@
     
    function inactive(){
        btn=document.getElementById('firb');
+       
        btn.disabled = 'disabled';
+       btn.setAttribute('class','btn');
        btn=document.getElementById('secb');
        btn.disabled = 'disabled';
+       btn.setAttribute('class','btn');
        btn=document.getElementById('tirb');
        btn.disabled = 'disabled';
+       btn.setAttribute('class','btn');
        btn=document.getElementById('fitb');
        btn.disabled = 'disabled';   
+       btn.setAttribute('class','btn');
    }
    function active(){
        btn=document.getElementById('firb');
        btn.disabled = false;
+       btn.setAttribute('class','btn success-color-dark');
        btn=document.getElementById('secb');
+       btn.setAttribute('class','btn success-color-dark');
        btn.disabled = false;
+       btn.setAttribute('class','btn success-color-dark');
        btn=document.getElementById('tirb');
        btn.disabled = false;
+       btn.setAttribute('class','btn success-color-dark');
        btn=document.getElementById('fitb');
        btn.disabled = false;
+       btn.setAttribute('class','btn success-color-dark');
       
    }
    
@@ -208,13 +212,12 @@ function answercheck(number){
        setTimeout(function() {
               
         if(answer[checkcount]==number){
-                okanswer.currentTime = 0;
-              　okanswer.play();
+              
+              　
     
         }
         else{
-              noanswer.currentTime = 0;
-              noanswer.play();
+             
         }
        
         }, 2000); 
@@ -229,7 +232,8 @@ function answercheck(number){
 
 
 function firstbutton(){
-
+    var target=document.getElementById('firb');
+    target.focus();
     firstsound();
     answercheck(1);
     inactive();
@@ -238,7 +242,8 @@ function firstbutton(){
 }
 
 function secondbutton(){
-
+    var target=document.getElementById('secb');
+    target.focus();
     secondsound();
     selectanswer(2);
     inactive();
@@ -246,7 +251,8 @@ function secondbutton(){
 }
 
 function thirdbutton(){
-  
+    var target=document.getElementById('tirb');
+    target.focus();
     thirdsound();
     selectanswer(3);
     inactive();
@@ -254,7 +260,8 @@ function thirdbutton(){
 }
 
 function fitbutton(){
-   
+    var target=document.getElementById('fitb');
+    target.focus();
     fitsound();
     selectanswer(4);
     inactive();
@@ -278,8 +285,7 @@ function fitbutton(){
   }
   function firstplay(){
          play();
-         target=document.getElementById('starb');
-          target.parentNode.removeChild(target);
+
         
   }
 
@@ -304,68 +310,78 @@ var count=0;
      }
    }
   </script>
-   
+<style type="text/css">
+.btn{
+       width:300px;
+       height:70px;
+       font-size:20px;
+             
+}
+.move_btn{
+       width:300px;
+}
+/*.contents{*/
+/*       width:1200px;*/
+/*       height:700px;*/
+/*       padding:30px;*/
+/*}*/
+/*.audio_area{*/
+/*       width:1000px;*/
+/*       height:50px;*/
+/*}*/
+.quiz_btn{
+       /*width:1000px;*/
+       /*height:450px;*/
+       padding:80px;
+}
+/*.btn_are{*/
+/*       width:1100px;*/
+/*       height:200px;*/
+/*       padding:30px;*/
+/*}*/
+/*.quiz{*/
+/*       width:650px;*/
+/*}*/
+</style>
 
-
-
-
-<div class="row"> 
-       <div class="col-md-3">  
-       <br> 
+<div class="row">
+        <center>
+       <div class="page-header">
+              <h1 style="font-size:50;">{{$study->id}}.{{$study->title}}</h1>
        </div>
-
-         
-       <div class="col-md-6">
-              <center> <h2>{{$quiz->id}}.{{$quiz->title}} 퀴즈 </h2></center>
-              <br><br>
-              
-              <audio id="soundbar" controls preload="none" ontimeupdate="myFunction(this)" > 
-              <!--ontimeupdate 재생중일시 해당 함수를 계속 호출함 -->
-                
-              <source src="{{$quiz->filesrc}}" type="audio/mpeg">
-                Your browser does not support the audio element.
-                </audio>
-                <br><br>
-              
-              <div class="col-md-3"></div>
-                    
-       </div> 
-</div>
-        
-        
-<div class="row"> 
-        
-       <div class="col-md-2"><br></div>
-          
-      
-       <div class="col-md-8" id='frame'>
-             <button type="button" id='starb' class="btn btn-indigo" onclick="firstplay()">시작</button><br>
-             <button type="button" id='firb' disabled="disabled" class="btn btn-blue-grey" onclick="firstbutton()">1번</button><br>
-             <button type="button" id='secb' disabled="disabled" class="btn btn-blue-grey" onclick="secondbutton()">2번</button><br>
-             <button type="button" id='tirb' disabled="disabled" class="btn btn-blue-grey " onclick="thirdbutton()">3번</button> <br>
-             <button type="button" id='fitb' disabled="disabled" class="btn btn-blue-grey" onclick="fitbutton()">4번</button><br>
-             <button type="button" class="btn btn-indigo" onclick='focusfirst()' >다시듣기</button><br>
-       </div>
-      
-                
-          
-       <div class="col-md-2"></div> 
-</div>
        
-<div class="row"> 
-       <div class="col-md-3"></div>
-          
-       <div class="col-md-6">
-       <br>
-              <button class="btn btn-orange move_btn" onclick="location.href='/study/{{$quiz->id}}'">교육 듣기</button><br>
+       <div class="contents">
+              <div class="quiz_area">
+                    
+                     <div class="audio_area">
+                            <audio id="soundbar" controls preload="none" ontimeupdate="myFunction(this)" > 
+                                   <!--ontimeupdate 재생중일시 해당 함수를 계속 호출함 -->
+                                   <source src="{{$quiz->filesrc}}" type="audio/mpeg">
+                                   Your browser does not support the audio element.
+                            </audio>       
+                     </div>
+                     
+                     <div class="quiz_btn" id='frame'>
+                           <button type="button" id='starb' class="btn btn-indigo" onclick="firstplay()">시작</button><br>
+                           <button type="button" id='firb' disabled="disabled" class="btn" onclick="firstbutton()">1번</button><br>
+                           <button type="button" id='secb' disabled="disabled" class="btn" onclick="secondbutton()">2번</button><br>
+                           <button type="button" id='tirb' disabled="disabled" class="btn " onclick="thirdbutton()">3번</button> <br>
+                           <button type="button" id='fitb' disabled="disabled" class="btn" onclick="fitbutton()">4번</button><br>
+                           <button type="button" class="btn btn-indigo" onclick='focusfirst()' >다시듣기</button><br>
+                     </div>
+                     
+              </div>
+       </div>
+       <div class="btn_are">
+             
+              <button class="btn btn-orange move_btn" onclick="location.href='/study/{{$quiz->id}}'">교육 듣기</button>
               <button type="button" class="btn btn-dark-green move_btn" onclick="active()">이전메뉴로</button>
               <a href="{{route('study') }}"> <button type="button" class="btn btn-dark-green move_btn">초기메뉴로</button></a>
-             
        </div>
-         
-       <div class="col-md-3"></div>
-                  
-</div> 
+       </center>
+       
+</div>
+
           
 
 <script>
@@ -391,5 +407,4 @@ var count=0;
        document.getElementById('fitb').innerHTML+=' '+examples[3];
 
 </script>
-        
 @endsection

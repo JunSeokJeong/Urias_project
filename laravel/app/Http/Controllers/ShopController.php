@@ -23,6 +23,22 @@ class ShopController extends Controller
                      ]); 
         //
     }
+    
+    public function popup(Request $res,$id){
+        $ab = $id;
+        if($id>=1000){ //1000넘으면 장바구니에서 넘어온 경로
+            $ab = $id;
+        }
+        
+               return view('shop.popup',[
+                   'product_id' => $id,
+                   'res' => $ab
+                   ]);  
+    }
+    
+    public function buy(Request $request){
+               return view('shop.popup');  
+    }
     public function Write()
     {
         return view('shop.shopWrite'); 
@@ -163,13 +179,51 @@ class ShopController extends Controller
                      ]); 
         //
     }
-//상품구매_재고만 줄어들게함
-    public function productBuy($id)
+//상품구매_재고만 줄어들게함 + 결제수단
+    public function productBuy(Request $res,$id)
     {
-
-
+            $payBtn = $res->payBtn; 
+            $wav;
+            if($payBtn == "card"){
+                $wav = 21; //카드
+            }else if($payBtn == "real"){
+                $wav = 22; //계좌이체
+            }else if($payBtn == "pay"){
+                $wav = 23; //무통장
+            }else if($payBtn == "cellphone"){
+                $wav = 24; //휴대폰
+            }
+            
+            
+        $val = $res->hiddens; //장바구니에서 넘어온경로 해결하기위한 shopProductStates DB의index_id값
+        if($val>=1000){ //장바구니에서 구매하면 실행
+            $val -= 1000;
+            $ress = DB::table('shopProductStates')->where('index_id',$val)->get();
+            $product_id = $ress[0]->product_id;
+            $ress2 = DB::table('shops')->where('product_id',$product_id)->get();
+            $num = $ress2[0]->product_num;
+            if($num!=0){ //상품 재고 개수 확인
+                $num -= 1;
+                DB::table('shopProductStates')->where('index_id',$val)->update(['state' => $wav]);
+                DB::table('shops')->where('product_id',$product_id)->update(['product_num' => $num]);
+                echo "<script>
+                   window.alert('구매 되었습니다.');
+                    window.close();
+                </script>";
+            }else{
+                echo "<script>
+                window.alert('품절된 상품입니다.');
+                window.alert('새로고침 시 상품이 자동으로 삭제됩니다.');
+                window.close();
+                </script>";
+                
+                DB::table('shopProductStates')->where('index_id',$val)->delete();   
+            }
+            
+        }else{//상품정보에서 구매하면 실행
+        $user_id = Auth::user()->id;
         $result = DB::table('shops')->where('product_id',$id)->get();
-        
+        $num=0;
         foreach ($result as $user){
             $num= $user->product_num;
         }
@@ -177,13 +231,36 @@ class ShopController extends Controller
             $num -= 1;
             DB::table('shops')->where('product_id',$id)->update(['product_num' => $num]);
             
+
+            $result = DB::table('shops')->where('product_id',$id)->get();
+        
+
+        
+            $product_id = $result[0]->product_id;
+            $product_name = $result[0]->product_name;
+            $product_num = $result[0]->product_num;
+            $product_price = $result[0]->product_price;
+            $product_image = $result[0]->product_iamge;
+            $state = $wav;
+            
+            DB::table('shopProductStates')->insert([
+                "product_id"  => $product_id,
+                "product_name" => $product_name,
+                "product_num" => $product_num,
+                "product_price"  => $product_price,
+                "product_image" => $product_image,
+                "user_id" => $user_id,
+                "state" => $state
+            ]);
             echo "<script>
                 window.alert('구매 되었습니다.');
+                window.close();
             </script>";
             
         }else{
             echo "<script>
-                window.alert('상품이 품절 되었습니다.');
+                window.alert('품절된 상품입니다.');
+                window.close();
             </script>";
         }
         
@@ -191,18 +268,33 @@ class ShopController extends Controller
         
         $result = DB::table('shops')->where('product_id',$id)->get();
         
-        return view('shop.productDetails',[  
-                    'product' => $result
-                     ]); 
+        // return view('shop.productDetails',[  
+        //             'product' => $result
+        //              ]); 
         //
+        }
     }
-    
-    
-    //장바구니 페이지이동  state = 1 (장바구니), state = 2 (구매)
+
+  public function Basketpopup(Request $res,$id)
+    {   
+        
+        $user_id = Auth::user()->id;
+        DB::table('shopProductStates')->where('index_id',$id)->delete();    
+        $result = DB::table('shopProductStates')->where('user_id',$user_id)->get();
+        
+        echo "<script>
+                window.alert('구매 되었습니다!');
+                window.close();
+        
+            </script>";
+    }
+    //장바구니 페이지이동  state = 1 (장바구니), state = 2 (구매) 
+    //state = 21 (카드로 구매) state = 22 (실시간 계좌이체로 구매)
+    //state = 23 (무통장입금으로 구매) state = 24 (휴대폰으로 구매)
     //상품정보페이지, 상품index페이지 2곳에서 넘어오는 함수
     public function productBasket($id)
     {
-        
+    
         $user_id = Auth::user()->id;
         
         if($id != 00){
@@ -238,7 +330,7 @@ class ShopController extends Controller
              
         }else{
             
-            $result = DB::table('shopProductStates')->where('user_id',$user_id)->get();
+            $result = DB::table('shopProductStates')->where('user_id',$user_id)->where('state',1)->get(); //장바구니 상품만 조회
             return view('shop.productBasket',[  
                         'product' => $result
                          ]); 

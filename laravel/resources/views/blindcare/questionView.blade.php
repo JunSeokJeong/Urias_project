@@ -1,4 +1,4 @@
-@extends('layouts.video_master')
+@extends('layouts.master')
 @section('title', 'Page Title')
 @section('content')
 

@@ -14,11 +14,8 @@ $connection = mysqli_connect("localhost", "root", "", "c9") or die("error");
 
 mysqli_query($connection, "set names utf8");
 
-$result = mysqli_query($connection ,"
-       INSERT INTO ".$book_name."_pages
-       (p_img_dir, p_pri_text, page_num) 
-       VALUE 
-       ('".$dir.$book_img_name."', '".$page_text."', ".($i + 1).")
-");
+$result = mysqli_query($connection ,
+       "INSERT INTO ".$book_name."_pages (p_img_dir, p_pri_text, page_num) VALUE ('".$dir.$book_img_name."', '".$page_text."', ".($i + 1).");");
 
+mysqli_close($connection);
 ?>

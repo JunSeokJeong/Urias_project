@@ -1,5 +1,6 @@
 var fs = require('fs');
 
+
 //도서 리스트
 module.exports.bookList = function(query,book_number,book_name,req,res){
     var mysql = require('mysql');
@@ -35,24 +36,26 @@ module.exports.bookList = function(query,book_number,book_name,req,res){
   
         fs.readFile(file_path,'utf8',function(err,data){
             if(err) console.log('error');
-              
+       
+                
             var data = data.replace(/\n/g,"");//개행문자 제거
                 data = data.replace(/\r/g,"");
                 data = data.replace(/ /g,"");
-                data = data.substring(6);
-       　　 console.log(data);
+                
+                //data = data.substring(6);
             //문자열 배열 할당
             for(var i=0; i<data.length;i++){
                 
-                str_array[i] = data[i];
+              str_array[i] = data[i];
+               
         
             }
             //요음 앞에 부분 인덱스 찾기 
             for(var i=0; i<str_array.length; i++){
                 if(str_array[i].charCodeAt(0)==12419 || str_array[i].charCodeAt(0)==12421 || str_array[i].charCodeAt(0)==12423){
-                    var v;
-                    v = i;
-                    array[number] = v-1;
+              //      var v;
+              //      v = i;
+                    array[number] = i-1;
                     number++;
                 }
             }
@@ -69,7 +72,7 @@ module.exports.bookList = function(query,book_number,book_name,req,res){
                   
                 else{ //i가 마지막이 아닐때 
                     //
-                    if(send_number == 4){
+                    if(send_number == 8){
                         send_array[number2] = str; //문자열 배열 할당
                         number2++ // send_array index 증가 
                         var a = send_array[number2-1].length;
@@ -120,7 +123,7 @@ module.exports.bookList = function(query,book_number,book_name,req,res){
                       //인덱스 같을때(요음앞에 탁음 반탁음있을때)
                       if(i == array[number]){
                           
-                         if(send_number == 3){ //요음 앞 문자가 str의 마지막 문자열일때
+                         if(send_number == 7){ //요음 앞 문자가 str의 마지막 문자열일때
                               str += 'x';
                               i--;
                               number--;
@@ -134,7 +137,7 @@ module.exports.bookList = function(query,book_number,book_name,req,res){
                       //다를 떄(탁음 ,반탁음, 그냥)
                       else{
                     
-                         if(send_number == 3){
+                         if(send_number == 7){
                           if(12364 <= str_array[i].charCodeAt(0) && str_array[i].charCodeAt(0) <= 12386 && str_array[i].charCodeAt(0)%2 == 0){
                              str += 'x';
                              send_number++;
@@ -238,6 +241,7 @@ module.exports.studyList = function(query,id,req,res){
         var file_dir = "../laravel/public";
         var file_path = file_dir+rows[0]['path'];
         console.log(file_path);
+  
   
         fs.readFile(file_path,'utf8',function(err,data){
              if(err) console.log('error');
@@ -466,7 +470,7 @@ module.exports.quizList = function(query,id,req,res){
   
         //도서파일명
         var file_dir = "../laravel/public";
-        var file_path = file_dir+rows[0]['path']+"/setkanji.txt";
+        var file_path = file_dir+rows[0]['path'];
         
   
         fs.readFile(file_path,'utf8',function(err,data){

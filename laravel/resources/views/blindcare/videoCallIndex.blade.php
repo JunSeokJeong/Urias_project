@@ -1,4 +1,4 @@
-@extends('layouts.video_master')
+@extends('layouts.master')
 @section('title', 'Page Title')
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />
@@ -27,6 +27,8 @@
         <button class="btn btn-primary" onclick="location.href='/blindcare/volunteerTimeCalendar'" >내 봉사시간 등록</button>
         <br><br>
         <button class="btn btn-primary" onclick="location.href='{{ route('qList') }}'" >질문 게시판</button>
+        <br><br>
+        <button class="btn btn-primary" onclick="location.href='{{ route('rtcReady') }}'" >실시간 Q&A봉사</button>
     </div>
     
     @elseif(Auth::user()->type == '시각장애인')

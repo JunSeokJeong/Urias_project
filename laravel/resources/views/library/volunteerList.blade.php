@@ -2,53 +2,106 @@
 @section('title', 'Page Title')
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />
-<style type="text/css">
-   
-   .divbox {
-      display: inline-block;
-      padding: 25px;
+<style>
+.c1 {
+  /*padding: px;*/
+  width: 100%;
+}
+
+@media (min-width: 500px) {
+  .c1 {
+    /*padding: 20px;*/
+    font-size: 1.5em;
   }
-  
-  .img{
-    width: 242px;
-    height: 200px;
+}
+
+@media (min-width: 800px) {
+  .c1 {
+    /*padding: 40px;*/
+    font-size: 2em;
   }
-    
+}
+
+.id_detailli .thumb_cont .info_area{
+       width:1000px;
+       height:220px;
+       padding:30px;
+}
+.img{
+       width:150px;
+       height:190px;
+       float:left;
+}
+.detail{
+       width:600px;
+       height:210px;
+       float: left;
+}
+.book_btn{
+       float:right;
+       width:200px;
+       height:180px;
+       
+}
+
+/*.btn{*/
+/*       height:70px;*/
+/*       width:250px;*/
+/*}*/
 </style>
 
 <!--오역수정 목록 부분-->
-<div><!--start div volunteerList-->
-
-  <div class="page-header">
-   <h2>오역수정 봉사 목록</h2>
-  </div>
-  
-  <!--봉사목록 출력-->
-  @foreach($result as $book)
-
-  <div class="row" >
-    <div class="divbox col-sm-6 col-md-4" onclick="location.href = '/library/volunteerInfo/{{$book->v_num}}/{{$book->book_name}}'">
-      <div class="thumbnail" >
-        <img class="img" src="{{$book->main_img_dir}}" alt="...">
-        <div class="caption">
-          <h3>{{$book->book_name}}</h3>
-          <!--<h3>{{$book->c_page}}/{{$book->page}}</h3>-->
-          <!--<h3>{{($book->c_page/$book->page)*100}}</h3>-->
-          <!--진행바 -->
-          <div class="progress">
-            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{($book->c_page/$book->page)*100}}" aria-valuemin="0" aria-valuemax="100" style="width:{{($book->c_page/$book->page)*100}}%">
-                <!--<span class="sr-only">40% Complete (success)</span>-->
-                {{($book->c_page/$book->page)*100}}%
-            </div>
-          </div>
-          <!-- end progress -->   
-        </div>
-      </div>
+<div class="row">
+  <center>
+    <div class="page-header">
+      <h1>오역수정 목록</h1>
     </div>
-    <input type="button" name="" value="{{$book->book_name}}" onclick="location.href = '/library/joinVolunteer/{{$book->v_num}}/{{$book->book_name}}'"/>
-     @endforeach
-     {!! $result->render() !!}
-  </div>
+  </center>
+
+    <div class="container">
+              <ul class="c1">
+                     @foreach($result as $book)
+                     <li style class="id_detailli">
+                            <div class="thumb_cont" onclick="location.href = '/library/joinVolunteer/{{$book->v_num}}/{{$book->book_name}}'" >
+                                   <div class="info_area">
+                                          <div class="cover_wrap">
+                                                  <img class="img" src="{{$book->main_img_dir}}" alt="..." >
+                                          </div>
+                                          <div class="detail">
+                                                 <div class="jumbotron">
+                                                        <div class="title">
+                                                               <span>
+                                                                      <h3>도서명 : {{$book->book_name}}</h3>
+                                                               </span>
+                                                        </div>
+                                                        <div class="info">
+                                                               <span>
+                                                                      <h4>{{$book->v_content}}</h4>
+                                                               </span>
+                                                        </div>
+                                                 </div>
+                                          </div>
+                                          <div class="modify">
+                                                 <br /><br /><br />
+                                                 
+                                          </div>
+                                          <div class="book_add" >
+                                                 <span>
+                                                        
+                                                 </span>
+                                          </div>
+                                         
+                                   </div>
+                            </div>
+                     </li>
+                     <!--<input type="button" class="btn btn-primary" value="오역수정" onclick="location.href = '/library/joinVolunteer/{{$book->v_num}}/{{$book->book_name}}'"/>-->
+                     
+                     @endforeach
+                     {!! $result->render() !!}
+                     
+              </ul>
+       </div>
+</div>
  
   <!--새로운 봉사등록하기-->
   <center>

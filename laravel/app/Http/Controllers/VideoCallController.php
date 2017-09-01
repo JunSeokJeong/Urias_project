@@ -81,7 +81,7 @@ class VideoCallController extends Controller{
         ]);
     } // end volunteerTimeList
     
-    // 내가 등록한 봉사시간 리스트로 이동
+    // 내가 등록한 봉사시간 캘린더로 이동
     public function volunteerTimeCalendar() {
         //로그인 확인
         if(!Auth::check()) {
@@ -132,6 +132,7 @@ class VideoCallController extends Controller{
         $start_minutes = $request->input('start_minutes');  // 봉사가능한 시작 분
         $end_times = $request->input('end_times');          // 봉사가능한 종료 시간
         $end_minutes = $request->input('end_minutes');      // 봉사가능한 종료 분
+        $kind = $request->input('kind');                    // 봉사 유형
         
         // 선택값 시간문자열형태로 변환
         $start_time = $start_times.':'.$start_minutes.':00';
@@ -142,7 +143,8 @@ class VideoCallController extends Controller{
             'writer'            => Auth::user()->email,
             'action_day'        => $choose_day,
             'action_start_time' => $start_time,
-            'action_end_time'   => $end_time
+            'action_end_time'   => $end_time,
+            'kind'              => $kind
         ]);
         
         echo "<script>
@@ -584,7 +586,7 @@ class VideoCallController extends Controller{
         echo $callback."(".json_encode($result).")";
     }
     
-    // 봉사시간 등록 후 봉사시간 리스트로 재이동(앱, 봉사자)
+    // 봉사시간 등록 후 봉사시간 리스트로 재이동(봉사자)
     public function volunteerTimeRegistApp() {
         $result = array();
         $callback = $_GET['callback'];
@@ -593,7 +595,7 @@ class VideoCallController extends Controller{
         $user_email = $_GET['user'];
         $day = $_GET['days'];
         $times = $_GET['times'];
-        
+        $kind = $_GET['kind'];
         
         $start_time = $times['start_times'].":".$times['start_minutes'].":00";
         $end_time = $times['end_times'].":".$times['end_minutes'].":00";
@@ -602,7 +604,8 @@ class VideoCallController extends Controller{
             'writer'            => $user_email,
             'action_day'        => $day,
             'action_start_time' => $start_time,
-            'action_end_time' => $end_time
+            'action_end_time'   => $end_time,
+            'kind'              => $kind
         ]);
         
         if($data) {
@@ -616,78 +619,81 @@ class VideoCallController extends Controller{
         echo $callback."(".json_encode($result).")";
     }
     
-    // 웹rtc에 필요한 id값 저장(앱, 봉사자)
-    public function idRegistApp() {
+    // 웹rtc 매칭에 필요한 등록시간, 평점, 봉사유형 로드
+    public function rtcLoadApp() {
         $result = array();
         $callback = $_GET['callback'];
         $result_data = 'failed';
         
-        $email = $_GET['user_email'];
-        $id = $_GET['user_id'];
+        $today = date("Y-m-d");
+        $totime = date("H:i:s");
+        $kind = $_GET['kind'];
         
-        $data = DB::table('rtc_ids')
-            ->where('email', '=', $email)
-            ->delete();
-        
-        $data = DB::table('rtc_ids')->insert([
-            'email'     => $email,
-            'id'        => $id
-        ]);
-    
-        if($data) {
+        $rtc_data = DB::table('volunteer_action_times')
+                        ->join('volunteer_points', 'volunteer_action_times.writer', '=', 'volunteer_points.email')
+                        ->where('action_day', '=', $today)
+                        ->where('action_start_time', '<=', $totime)
+                        ->where('action_end_time', '>', $totime)
+                        ->where('kind', '=', $kind)
+                        ->orderby('point', 'desc')
+                        ->get();
+
+        if($rtc_data != null) {
             $result_data = 'success';
-        }
-        
-        $result = array(
-            'result' => $result_data
-        );
-        
-        echo $callback."(".json_encode($result).")";
-    }
-    
-    // 웹rtc에 필요한 id값 저장(웹, 봉사자)
-    public function idRegist($id) {
-        $data = DB::table('rtc_ids')
-            ->where('email', '=', Auth::user()->email)
-            ->delete();
-            
-        $data = DB::table('rtc_ids')->insert([
-            'email'     => Auth::user()->email,
-            'id'        => $id
-        ]);
-        
-        return redirect("/blindcare/blindIndex");
-    }
-    
-    
-    
-    // 웹rtc에 필요한 id값 로드
-    public function idLoadApp() {
-        $result = array();
-        $callback = $_GET['callback'];
-        
-        $email = $_GET['user'];
-        
-        $result_data = 'failed';
-        
-        $data = DB::table('rtc_ids')
-            ->where('email', '=', $email)
-            ->get();
-        
-        if($data != null) {
-            $result_data = 'success';
-            
-            $rtc = array();
-            
-            foreach($data as $info) {
-                $rtc['email'] = $info->email;    
-                $rtc['id'] = $info->id;
+            $volunteer_list = array();
+            $count = 0;
+
+            foreach($rtc_data as $data) {
+                $volunteer_list[$count] = array();
+                $volunteer_list[$count]['list_num'] = $count + 1;
+                $volunteer_list[$count]['num'] = $data->num;
+                $volunteer_list[$count]['writer'] = $data->writer;
+                $volunteer_list[$count]['action_day'] = $data->action_day;
+                $volunteer_list[$count]['action_start_time'] = $data->action_start_time;
+                $volunteer_list[$count]['action_end_time'] = $data->action_end_time;
+                $volunteer_list[$count]['point'] = $data->point;
+                $volunteer_list[$count]['kind'] = $data->kind;
+                
+                $count++;
             }
         }
         
         $result = array(
             'result' => $result_data,
-            'rtc' => $rtc
+            'volunteer_list' => $volunteer_list
+        );
+        
+        echo $callback."(".json_encode($result).")";
+    }
+    
+    // 낙상사고 리스트 로드(앱, 시각장애인)
+    public function fallingLocationApp() {
+        $result = array();
+        $callback = $_GET['callback'];
+        $result_data = 'failed';
+        
+        $data = DB::table('falling_location')->get();
+        
+        if($data != null) {
+            $result_data = 'success';
+            
+            $falling_location = array();
+            $count = 0;
+            
+            foreach($data as $info) {
+                $falling_location[$count] = array();
+                $falling_location[$count]['l_title'] = $info->l_title;
+                $falling_location[$count]['f_content'] = $info->f_content;
+                $falling_location[$count]['lat'] = $info->lat;
+                $falling_location[$count]['lng'] = $info->lng;
+                
+                $count++;
+            }
+        }
+        
+        $result = array(
+            'result' => $result_data,
+            'falling_location' => $falling_location
         );
         
         echo $callback."(".json_encode($result).")";

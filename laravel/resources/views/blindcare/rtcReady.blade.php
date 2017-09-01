@@ -1,20 +1,20 @@
-@extends('layouts2.master2')
+@extends('layouts.master')
 @section('title', 'Page Title')
 @section('content')
 
 <link rel="stylesheet" href="../css/main.css" />
-
 <script>
     if(document.location.protocol == 'http:') {
         document.location.href = document.location.href.replace('http:', 'https:');
     }
 </script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://urias-heoyongjun.c9users.io:8082/socket.io/socket.io.js"></script>
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<!--<script src="https://webrtc-server-wjdwnstjr26.c9users.io/socket.io/socket.io.js"></script>-->
+<script src="https://urias-cloned-cloned-cloned-heoyongjun.c9users.io:8081/socket.io/socket.io.js"></script>
 <script src="../js/lib/adapter.js"></script>
-<script src="../js/rtcReady.js"></script>
+<script src="../js/mainOut.js"></script>
 
 <h1>실시간 영상</h1>
 
@@ -39,5 +39,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    email('{{Auth::user()->email}}');
+</script>
 
 @endsection

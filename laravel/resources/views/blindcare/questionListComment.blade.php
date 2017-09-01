@@ -1,4 +1,4 @@
-@extends('layouts.video_master')
+@extends('layouts.master')
 @section('title', 'Page Title')
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />

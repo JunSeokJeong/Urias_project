@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Page Title')
 @section('content')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />
 <style type="text/css">
     .table{
         width:650px;

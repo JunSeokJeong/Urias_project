@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.fall_master')
 @section('title', 'Page Title')
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />
@@ -26,22 +26,22 @@
     position:absolute;
     width:250px;
     height:200px;
-    margin-left:-120px;
+    margin-left:10px;
 }
 </style>
 
 
 <!-- page name -->
 <div class="page-header">
-       <h1>Shop</h1>
+       <h1>ショッピングモール</h1>
 </div>
 <!-- 상품 등록 버튼 --> 
 <div>
        @if(Auth::user()->type == '관리자')
-       <button class="btn btn-dark-green" onclick="location.href='{{route('write')}}'">상품 등록</button>
-       <button class="btn btn-dark-green" onclick="location.href='{{route('admin')}}'">상품 관리</button>
+       <button class="btn btn-dark-green" onclick="location.href='{{route('write')}}'">商品登録</button>
+       <button class="btn btn-dark-green" onclick="location.href='{{route('admin')}}'">商品管理</button>
        @elseif(Auth::user()->type == '시각장애인')
-       <button class="btn btn-dark-green" onclick="location.href='/shop/productBasket/00'">장바구니</button>
+       <button class="btn btn-dark-green" onclick="location.href='/shop/productBasket/00'">ショッピングカート</button>
        @endif
 </div>
 
@@ -73,16 +73,16 @@
                            @else
                            <button class="white_btn btn" id="firb"><h4 class='h'>{{$test->product_name}}</h4></button><br><br>
                            @endif
-                           <button class="white_btn btn" ><h4 class='h'>{{number_format($test->product_price)}}원</h4></button>
+                           <button class="white_btn btn" ><h4 class='h'>{{number_format($test->product_price)}}円</h4></button>
                            <br><br>
-                           <button type="button" class="btn btn-lime"  onclick="location.href='/shop/productDetails/{{$test->product_id}}'"><h4>상품 상세보기</h4></button>
+                           <button type="button" class="btn btn-lime"  onclick="location.href='/shop/productDetails/{{$test->product_id}}'"><h4>商品詳しく見る</h4></button>
                            <br>
                      </div>
                      </div>
               </div>
        @endforeach
        </div>
-<button class="btn btn-dark-green" alt="메인으로" onclick="location.href='http://urias-heoyongjun.c9users.io'">메인으로</button>
+<button class="btn btn-dark-green" alt="메인으로" onclick="location.href='http://urias-heoyongjun.c9users.io'">メインページへ</button>
 
 
 @endsection

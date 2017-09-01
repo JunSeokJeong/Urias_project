@@ -1,7 +1,7 @@
-@extends('layouts.master')
+@extends('layouts.fall_master')
 @section('title', 'Page Title')
 @section('content')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />
 
 <center>
     
@@ -13,7 +13,7 @@
             <hr>
             <!-- content -->
             <div class="content" alt="내용">
-                <h3>{{$board->content}}</h3>
+                <p>{{$board->content}}</p>
             </div>
         </div>
         

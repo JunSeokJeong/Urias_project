@@ -61,7 +61,8 @@ CREATE table volunteer_lists (
 	v_content TEXT,
 	write_date VARCHAR(30) NOT NULL,
 	page INT NOT NULL,
-	main_img_dir VARCHAR(50)
+	main_img_dir VARCHAR(50),
+	page_remains INT NOT NULL
 );
 
 //책 페이지 테이블

@@ -69,7 +69,8 @@
         @else
         로그인을 해주세요
         @endif
-        <button class="btn btn-lg " alt="오역수정" style="background-color:white;" onclick="location.href='{{ route('vList') }}'"><h4>오역수정목록</h4></button>
+        <input type="button"  class="btn btn-default" value="삭제하기" onclick="location.href = '/library/delVolunteerList/{{$result[0]->v_num}}/{{$book_name}}' "/>
+        <button class="btn btn-lg" alt="오역수정" style="background-color:white;" onclick="location.href='{{ route('vList') }}'"><h4>오역수정목록</h4></button>
     </div>
 
 @endsection

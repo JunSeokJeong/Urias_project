@@ -12,23 +12,26 @@
        #noInventory{ color:red; }
 </style>
 <script type="text/javascript">
-       var index_id;
-              function delete(index_id){
-                      if(confirm('정말 삭제하시겠습니까?')==true){
-                            location.href='/shop/productBasketDelete/'+index_id;
-                     }else{
-                            
-                     }
-              }
+       var product_id;
+       function popupOpen(product_id){
+product_id += 1000;
+	var popUrl = "/shop/popup/"+product_id;	//팝업창에 출력될 페이지 URL
+
+	var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+
+		window.open(popUrl,"",popOption);
+       
+	}
+       
               
-              function aa(){
-                  alert('눌림');
-              }
+
 </script>
               <!-- page name -->
        <div class="page-header">
               <h1>장 바 구 니 목 록</h1>
        </div>
+       <button class="btn btn-dark-green" onclick="location.href='/shop'">뒤로가기</button>
+       
        <table class="bordered " border="1px">
               <tr>
                      <th class="basketTh">상품이미지</th>
@@ -44,11 +47,12 @@
                      <td>{{number_format($pro->product_num)}} 개</td>
                      <td>{{number_format($pro->product_price)}} 원</td>
                      <td>
-                            <form action="{{route('productBasketDelete',$pro->index_id)}}" method="post" >
+                            <form action="/shop/productBasketDelete/{{$pro->index_id}}" method="post" >
                                    <input type="hidden" name="_method" value="delete"><!-- delete 할때 필요 -->
                                    {{csrf_field()}}
                                    <button class="btn btn-danger" type="submit">삭제</button>
-                            </form>  
+                            </form> 
+       <button onclick="popupOpen({{$pro->index_id}});" class="btn btn-dark-green">구매</button>
                      </td>
               </tr>
 @endforeach

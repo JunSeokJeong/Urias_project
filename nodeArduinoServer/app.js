@@ -40,6 +40,7 @@ app.get('/education',function(req, res){
 app.get('/brailQuiz',function(req, res){
   
   var path = req.query.path;
+  console.log(path);
   var brailStudyController = require('./app_server/controllers/brailStudyController');
   brailStudyController.quiz(req, res);
   

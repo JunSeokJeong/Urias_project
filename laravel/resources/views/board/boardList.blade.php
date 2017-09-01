@@ -1,14 +1,13 @@
-@extends('layouts.master')
+@extends('layouts.fall_master')
 @section('title', 'Page Title')
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css" />
-
 <style type="text/css">
     .table{
-        width:750px;
+        width:850px;
     }
     .thcolor{
-           background-color:#0072B2;
+           background-color:#00A328;
            color:white;
     }
     .tdcolor{
@@ -17,7 +16,7 @@
 </style>
 
 <div class="page-header">
-   <h1 alt="온라인 도서관">도서관 소식</h1>
+   <h1 alt="온라인 도서관">お知らせ</h1>
 </div>
 <center>
       <table class="table">
@@ -32,11 +31,11 @@
           <tr>
               @foreach ($boardPage as $value)
             <!--번호-->
-            <td><a href="{{route('boardRead',$value->id)}}" style="color:black;">{{$value->id}}</a></td>
+            <td class="tdcolor"><a href="{{route('boardRead',$value->id)}}" style="color:black;">{{$value->id}}</a></td>
             <!--제목-->
-            <td><a href="{{route('boardRead',$value->id)}}" style="color:black;">{{$value->title}}</a></td>
+            <td class="tdcolor"><a href="{{route('boardRead',$value->id)}}" style="color:black;">{{$value->title}}</a></td>
             <!--날짜-->
-            <td><a href="{{route('boardRead',$value->id)}}" style="color:black;">{{$value->created_at}} </a></td>
+            <td class="tdcolor"><a href="{{route('boardRead',$value->id)}}" style="color:black;">{{$value->created_at}} </a></td>
             <!--조회수-->
             <!--<td></td>-->
           </tr>
@@ -51,10 +50,9 @@
     <!--관리자일 경우 -->
     @if(Auth::check())
     @if(Auth::user()->type == '관리자')
-    <a class="waves-effect waves-light btn-large" href="{{route('boardWrite')}}">글쓰기</a>
-    <br>
-    @else
-    
+    <a class="waves-effect waves-light btn-large" href="{{route('boardWrite')}}">
+       <button class="btn btn-dark-green" alt="글쓰기">글쓰기</button>
+    </a>
     @endif
   
   @else

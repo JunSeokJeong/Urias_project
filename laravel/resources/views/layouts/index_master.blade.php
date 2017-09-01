@@ -11,7 +11,7 @@
        @include('layouts.slider')
        
        <!--container-->
-       <div class="container">
+       <div class="conteiner">
               <br><br>
                @yield('content')
 

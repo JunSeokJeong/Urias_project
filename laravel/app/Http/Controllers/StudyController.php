@@ -8,15 +8,18 @@ use App\Study_list;
 use App\Study_check;
 use App\Quiz_list;
 use App\Example;
+use App\Result;
+
 use Auth;
 use Session;
-
 
 
 class StudyController extends Controller
 {
     
 
+    
+    
        public function __construct()
     {
         $this->middleware('auth');
@@ -34,7 +37,7 @@ class StudyController extends Controller
         'clearpercent'=>$clearpercent,
          ]  );
     }
-    
+   
     public function quizselect(){
          $selects =Study_list::all();
          
@@ -128,7 +131,44 @@ class StudyController extends Controller
         return redirect('adinput/'.$id);
              
     }
-
+       public function quizResultProcess($id){
+       $text_array = array();
+       $count=DB::table('results')->max('count');
+       if(!isset($count)){
+           $count=0;   
+       }
+       $answer=array();
+       $choice=array();
+        for ($i = 0; $i < mb_strlen($id,"UTF-8"); $i++) {
+           $char = mb_substr ($id, $i, 1, 'UTF-8');
+           array_push ($text_array, $char);
+         }
+         
+      for($i=0;$i<count($text_array);$i++){
+             if($i>1){
+                   array_push($answer,$text_array[$i]);
+             }
+             else{
+                    array_push($choice,$text_array[$i]);
+             }
+                    
+      }
+     $count++;
+     for($a=0;$a<2;$a++){
+            $results= new Result;
+            $results->count=$count;
+            $results->userid=Auth::user()->id;
+            $results->quiznum=Session::get('quiznum');
+            $results->example=$a+1;
+            $results->answer=$answer[$a];
+            $results->choice=$choice[$a];
+            $results->save();
+     }
+         
+        return redirect('/result/'.Session::get('quiznum'));  
+       
+     
+    }
      public function quizsend(Request $request)
     {
         $id=$request->input('id');
@@ -289,6 +329,20 @@ class StudyController extends Controller
      
     }
     
+    public function quizResult($id){
+         $max=DB::table('results')->where('userid','=',$id)->max('count');
+         if(!isset($max)){
+                $max=1;
+         }
+         $results = DB::table('results')->where('count', '=',$max)->get();
+         return view('study.result',
+              [
+                     'id'=>$results,
+              ]
+         );  
+    }
+    
+    
      public function quizpathcchange(Request $request,$id){
     $study = Quiz_list::find($id);
 
@@ -309,7 +363,8 @@ class StudyController extends Controller
     
     
     public function quizShow($id)//각각의 퀴즈로 이동 
-    {
+    {  
+    Session::put('quiznum', $id);
     $fp= fopen("brail_study/chapter".$id."/quiz/setkanji.txt","r"); 
     $kanji = fgets($fp, filesize("brail_study/chapter".$id."/quiz/setkanji.txt"));
     fclose($fp);
